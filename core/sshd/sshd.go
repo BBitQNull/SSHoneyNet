@@ -7,7 +7,6 @@ import (
 )
 
 type SSHDService interface {
-	//	DeliverCommand(ctx context.Context) (string, error)
-	EchoCommand(ctx context.Context) (model.CmdResult, error)
+	EchoCommand(ctx context.Context, result model.CmdResult) (bool, error)
 	StartSSHServer()
 }

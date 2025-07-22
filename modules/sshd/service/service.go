@@ -1,4 +1,4 @@
-package service
+package sshd_service
 
 import (
 	"context"
@@ -15,13 +15,8 @@ func NewSSHDService() sshd.SSHDService {
 	return &sshdService{}
 }
 
-/*
-	func (s *sshdService) DeliverCommand(ctx context.Context) (string, error) {
-		return "stub", nil
-	}
-*/
-func (s *sshdService) EchoCommand(ctx context.Context) (model.CmdResult, error) {
-	return model.CmdResult{}, nil
+func (s *sshdService) EchoCommand(ctx context.Context, result model.CmdResult) (bool, error) {
+	return true, nil
 }
 
 func (s *sshdService) StartSSHServer() {
