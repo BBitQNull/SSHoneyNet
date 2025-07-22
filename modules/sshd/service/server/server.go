@@ -24,14 +24,14 @@ func loadPrivateKey(path string, passphrase []byte) (gossh.Signer, error) {
 }
 
 // 闭包 依赖于authSvc的具体实现
-func StartServer(authSvc auth.AuthService) {
+func StartServer(authSvc auth.AuthService, echoReg *model.EchoRegistry) {
 	signer, err := loadPrivateKey("/pkg/key/host_key_rsa", []byte("123456"))
 	if err != nil {
 		log.Fatal("failed to loadkeyfile: ", err)
 	}
 	s := &ssh.Server{
 		Addr:    *serverAddr,
-		Handler: handler.SessionHandler(model.NewEchoRegistry()),
+		Handler: handler.SessionHandler(echoReg),
 		PasswordHandler: func(ctx ssh.Context, password string) bool {
 			username := ctx.User()
 			return authSvc.PasswordValidator(username, password)
