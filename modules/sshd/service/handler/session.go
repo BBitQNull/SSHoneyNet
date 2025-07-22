@@ -1,8 +1,6 @@
 package handler
 
 import (
-	"fmt"
-	"io"
 	"strings"
 
 	"github.com/BBitQNull/SSHoneyNet/pkg/model"
@@ -30,12 +28,10 @@ func SessionHandler(echoReg *model.EchoRegistry) ssh.Handler {
 		writeChan := make(chan string, 100)
 		echoReg.Register(sessionID, writeChan)
 		defer echoReg.Unregister(sessionID)
-		// test
-		io.WriteString(s, "Welcome to Honeypot!\n")
 
 		go func() {
 			for msg := range writeChan {
-				fmt.Fprintln(rl.Stdout(), msg)
+				rl.Write([]byte(msg + "\n"))
 			}
 		}()
 		for {
