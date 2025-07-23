@@ -5,6 +5,7 @@ import (
 	"errors"
 	"log"
 
+	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/modules/commandparser/endpoint"
 	pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/convert"
@@ -13,10 +14,10 @@ import (
 
 type grpcServer struct {
 	pb.UnimplementedCmdParserServer
-	CmdParser grpctransport.Handler
+	cmdParser grpctransport.Handler
 }
 
-func decodeGRPCCmdParserRequest(_ context.Context, grpcReq interface{}) (interface{}, error) {
+func decodeGRPCmdParserRequest(_ context.Context, grpcReq interface{}) (interface{}, error) {
 	req, ok := grpcReq.(*pb.CmdParserRequest)
 	if !ok {
 		log.Fatal("failed to assert")
@@ -25,11 +26,29 @@ func decodeGRPCCmdParserRequest(_ context.Context, grpcReq interface{}) (interfa
 	return endpoint.CmdParserRequest{Cmd: req.Cmd}, nil
 }
 
-func encodeGRPCCmdParserResponse(_ context.Context, response interface{}) (interface{}, error) {
+func encodeGRPCmdParserResponse(_ context.Context, response interface{}) (interface{}, error) {
 	resp, ok := response.(endpoint.CmdParserResponse)
 	if !ok {
 		log.Fatal("failed to assert")
 		return nil, errors.New("failed to assert")
 	}
 	return &pb.CmdParserResponse{Ast: convert.ConvertScript(resp.Ast)}, nil
+}
+
+func NewGRPCmdParserServer(svc commandparser.CmdParserService) pb.CmdParserServer {
+	return &grpcServer{
+		cmdParser: grpctransport.NewServer(
+			endpoint.MakeCmdParserEndpoint(svc),
+			decodeGRPCmdParserRequest,
+			encodeGRPCmdParserResponse,
+		),
+	}
+}
+
+func (s *grpcServer) CmdParser(ctx context.Context, req *pb.CmdParserRequest) (*pb.CmdParserResponse, error) {
+	_, rep, err := s.cmdParser.ServeGRPC(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return rep.(*pb.CmdParserResponse), nil
 }
