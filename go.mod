@@ -3,6 +3,7 @@ module github.com/BBitQNull/SSHoneyNet
 go 1.24.5
 
 require (
+	github.com/alecthomas/participle/v2 v2.1.4 // indirect
 	github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be // indirect
 	github.com/chzyer/readline v1.5.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

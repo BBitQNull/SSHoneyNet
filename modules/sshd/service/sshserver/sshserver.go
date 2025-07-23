@@ -1,4 +1,4 @@
-package server
+package sshserver
 
 import (
 	"flag"
@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/BBitQNull/SSHoneyNet/modules/sshd/service/handler"
-	"github.com/BBitQNull/SSHoneyNet/pkg/model"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/auth"
 	"github.com/gliderlabs/ssh"
 	gossh "golang.org/x/crypto/ssh"
@@ -24,14 +23,14 @@ func loadPrivateKey(path string, passphrase []byte) (gossh.Signer, error) {
 }
 
 // 闭包 依赖于authSvc的具体实现
-func StartServer(authSvc auth.AuthService, echoReg *model.EchoRegistry) {
+func StartServer(authSvc auth.AuthService) {
 	signer, err := loadPrivateKey("/pkg/key/host_key_rsa", []byte("123456"))
 	if err != nil {
 		log.Fatal("failed to loadkeyfile: ", err)
 	}
 	s := &ssh.Server{
 		Addr:    *serverAddr,
-		Handler: handler.SessionHandler(echoReg),
+		Handler: handler.SessionHandler(),
 		PasswordHandler: func(ctx ssh.Context, password string) bool {
 			username := ctx.User()
 			return authSvc.PasswordValidator(username, password)

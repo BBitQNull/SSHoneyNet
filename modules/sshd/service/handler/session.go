@@ -3,12 +3,11 @@ package handler
 import (
 	"strings"
 
-	"github.com/BBitQNull/SSHoneyNet/pkg/model"
 	"github.com/chzyer/readline"
 	"github.com/gliderlabs/ssh"
 )
 
-func SessionHandler(echoReg *model.EchoRegistry) ssh.Handler {
+func SessionHandler() ssh.Handler {
 	return func(s ssh.Session) {
 		rl, err := readline.NewEx(&readline.Config{
 			Prompt:          "honeypot> ",
@@ -24,16 +23,8 @@ func SessionHandler(echoReg *model.EchoRegistry) ssh.Handler {
 		}
 		defer rl.Close()
 
-		sessionID := string(s.Context().SessionID())
-		writeChan := make(chan string, 100)
-		echoReg.Register(sessionID, writeChan)
-		defer echoReg.Unregister(sessionID)
+		//		sessionID := string(s.Context().SessionID())
 
-		go func() {
-			for msg := range writeChan {
-				rl.Write([]byte(msg + "\n"))
-			}
-		}()
 		for {
 			line, err := rl.Readline()
 			if err != nil {
@@ -44,7 +35,7 @@ func SessionHandler(echoReg *model.EchoRegistry) ssh.Handler {
 			case "exit":
 				return
 			default:
-				writeChan <- "Yours input: " + line
+				//命令解析和调用
 			}
 		}
 	}
