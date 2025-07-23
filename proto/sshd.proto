@@ -13,7 +13,6 @@ message CmdResult {
     uint32 exitcode = 2;
     string errmsg = 3;
     string log = 4;
-    bool nextprompt = 5;
 }
 message EchoCmdRequest {
     CmdResult result = 1;

@@ -19,11 +19,10 @@ type grpcSSHDService struct {
 func decodeGRPCEchoCmdRequest(_ context.Context, grpcReq interface{}) (interface{}, error) {
 	if req, ok := grpcReq.(*pb.EchoCmdRequest); ok {
 		return endpoint.EchoCommandRequest{Result: model.CmdResult{
-			Output:     req.Result.Output,
-			ExitCode:   req.Result.Exitcode,
-			ErrMsg:     errors.New(req.Result.Errmsg),
-			Log:        req.Result.Log,
-			NextPrompt: req.Result.Nextprompt,
+			Output:   req.Result.Output,
+			ExitCode: req.Result.Exitcode,
+			ErrMsg:   errors.New(req.Result.Errmsg),
+			Log:      req.Result.Log,
 		}}, nil
 	}
 	return nil, errors.New("decodeGRPCEchoCmdRequest failed")

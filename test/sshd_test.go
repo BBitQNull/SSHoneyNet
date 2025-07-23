@@ -44,11 +44,10 @@ func SSHDTest(t *testing.T) {
 	c := pb.NewEchoCmdClient(conn)
 	resp, err := c.EchoCommand(context.Background(), &pb.EchoCmdRequest{
 		Result: &pb.CmdResult{
-			Output:     "hello sshd!",
-			Exitcode:   0,
-			Errmsg:     "no error!",
-			Log:        "",
-			Nextprompt: true,
+			Output:   "hello sshd!",
+			Exitcode: 0,
+			Errmsg:   "no error!",
+			Log:      "",
 		},
 	})
 	assert.Nil(t, err)

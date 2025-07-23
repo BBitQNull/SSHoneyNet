@@ -27,7 +27,6 @@ type CmdResult struct {
 	Exitcode      uint32                 `protobuf:"varint,2,opt,name=exitcode,proto3" json:"exitcode,omitempty"`
 	Errmsg        string                 `protobuf:"bytes,3,opt,name=errmsg,proto3" json:"errmsg,omitempty"`
 	Log           string                 `protobuf:"bytes,4,opt,name=log,proto3" json:"log,omitempty"`
-	Nextprompt    bool                   `protobuf:"varint,5,opt,name=nextprompt,proto3" json:"nextprompt,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,13 +87,6 @@ func (x *CmdResult) GetLog() string {
 		return x.Log
 	}
 	return ""
-}
-
-func (x *CmdResult) GetNextprompt() bool {
-	if x != nil {
-		return x.Nextprompt
-	}
-	return false
 }
 
 type EchoCmdRequest struct {
@@ -190,15 +182,12 @@ var File_sshd_proto protoreflect.FileDescriptor
 const file_sshd_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"sshd.proto\x12\x02pb\"\x89\x01\n" +
+	"sshd.proto\x12\x02pb\"i\n" +
 	"\tCmdResult\x12\x16\n" +
 	"\x06output\x18\x01 \x01(\tR\x06output\x12\x1a\n" +
 	"\bexitcode\x18\x02 \x01(\rR\bexitcode\x12\x16\n" +
 	"\x06errmsg\x18\x03 \x01(\tR\x06errmsg\x12\x10\n" +
-	"\x03log\x18\x04 \x01(\tR\x03log\x12\x1e\n" +
-	"\n" +
-	"nextprompt\x18\x05 \x01(\bR\n" +
-	"nextprompt\"7\n" +
+	"\x03log\x18\x04 \x01(\tR\x03log\"7\n" +
 	"\x0eEchoCmdRequest\x12%\n" +
 	"\x06result\x18\x01 \x01(\v2\r.pb.CmdResultR\x06result\"'\n" +
 	"\x0fEchoCmdResponse\x12\x14\n" +
