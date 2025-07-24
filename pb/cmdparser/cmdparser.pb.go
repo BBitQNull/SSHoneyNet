@@ -4,9 +4,10 @@
 // 	protoc        v5.29.3
 // source: cmdparser.proto
 
-package pb
+package cmdparser
 
 import (
+	common "github.com/BBitQNull/SSHoneyNet/pb/common"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -67,7 +68,7 @@ func (x *CmdParserRequest) GetCmd() string {
 
 type CmdParserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ast           *Script                `protobuf:"bytes,1,opt,name=ast,proto3" json:"ast,omitempty"`
+	Ast           *common.Script         `protobuf:"bytes,1,opt,name=ast,proto3" json:"ast,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -102,340 +103,25 @@ func (*CmdParserResponse) Descriptor() ([]byte, []int) {
 	return file_cmdparser_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CmdParserResponse) GetAst() *Script {
+func (x *CmdParserResponse) GetAst() *common.Script {
 	if x != nil {
 		return x.Ast
 	}
 	return nil
 }
 
-type Script struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Lines         []*CommandLine         `protobuf:"bytes,1,rep,name=lines,proto3" json:"lines,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Script) Reset() {
-	*x = Script{}
-	mi := &file_cmdparser_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Script) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Script) ProtoMessage() {}
-
-func (x *Script) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Script.ProtoReflect.Descriptor instead.
-func (*Script) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *Script) GetLines() []*CommandLine {
-	if x != nil {
-		return x.Lines
-	}
-	return nil
-}
-
-type CommandLine struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Pipeline      []*Command             `protobuf:"bytes,1,rep,name=pipeline,proto3" json:"pipeline,omitempty"`
-	Redir         *Redirection           `protobuf:"bytes,2,opt,name=redir,proto3,oneof" json:"redir,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CommandLine) Reset() {
-	*x = CommandLine{}
-	mi := &file_cmdparser_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CommandLine) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CommandLine) ProtoMessage() {}
-
-func (x *CommandLine) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CommandLine.ProtoReflect.Descriptor instead.
-func (*CommandLine) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *CommandLine) GetPipeline() []*Command {
-	if x != nil {
-		return x.Pipeline
-	}
-	return nil
-}
-
-func (x *CommandLine) GetRedir() *Redirection {
-	if x != nil {
-		return x.Redir
-	}
-	return nil
-}
-
-type Command struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Flags         []*FlagWithValue       `protobuf:"bytes,2,rep,name=flags,proto3" json:"flags,omitempty"`
-	Args          []*Argument            `protobuf:"bytes,3,rep,name=args,proto3" json:"args,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Command) Reset() {
-	*x = Command{}
-	mi := &file_cmdparser_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Command) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Command) ProtoMessage() {}
-
-func (x *Command) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Command.ProtoReflect.Descriptor instead.
-func (*Command) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *Command) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *Command) GetFlags() []*FlagWithValue {
-	if x != nil {
-		return x.Flags
-	}
-	return nil
-}
-
-func (x *Command) GetArgs() []*Argument {
-	if x != nil {
-		return x.Args
-	}
-	return nil
-}
-
-type FlagWithValue struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Value         *string                `protobuf:"bytes,2,opt,name=value,proto3,oneof" json:"value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FlagWithValue) Reset() {
-	*x = FlagWithValue{}
-	mi := &file_cmdparser_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FlagWithValue) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FlagWithValue) ProtoMessage() {}
-
-func (x *FlagWithValue) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FlagWithValue.ProtoReflect.Descriptor instead.
-func (*FlagWithValue) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *FlagWithValue) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *FlagWithValue) GetValue() string {
-	if x != nil && x.Value != nil {
-		return *x.Value
-	}
-	return ""
-}
-
-type Argument struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Value         *string                `protobuf:"bytes,1,opt,name=value,proto3,oneof" json:"value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Argument) Reset() {
-	*x = Argument{}
-	mi := &file_cmdparser_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Argument) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Argument) ProtoMessage() {}
-
-func (x *Argument) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Argument.ProtoReflect.Descriptor instead.
-func (*Argument) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *Argument) GetValue() string {
-	if x != nil && x.Value != nil {
-		return *x.Value
-	}
-	return ""
-}
-
-type Redirection struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	File          string                 `protobuf:"bytes,1,opt,name=file,proto3" json:"file,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Redirection) Reset() {
-	*x = Redirection{}
-	mi := &file_cmdparser_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Redirection) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Redirection) ProtoMessage() {}
-
-func (x *Redirection) ProtoReflect() protoreflect.Message {
-	mi := &file_cmdparser_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Redirection.ProtoReflect.Descriptor instead.
-func (*Redirection) Descriptor() ([]byte, []int) {
-	return file_cmdparser_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *Redirection) GetFile() string {
-	if x != nil {
-		return x.File
-	}
-	return ""
-}
-
 var File_cmdparser_proto protoreflect.FileDescriptor
 
 const file_cmdparser_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcmdparser.proto\x12\x02pb\"$\n" +
+	"\x0fcmdparser.proto\x12\x02pb\x1a\fcommon.proto\"$\n" +
 	"\x10CmdParserRequest\x12\x10\n" +
 	"\x03cmd\x18\x01 \x01(\tR\x03cmd\"1\n" +
 	"\x11CmdParserResponse\x12\x1c\n" +
 	"\x03ast\x18\x01 \x01(\v2\n" +
-	".pb.ScriptR\x03ast\"/\n" +
-	"\x06Script\x12%\n" +
-	"\x05lines\x18\x01 \x03(\v2\x0f.pb.CommandLineR\x05lines\"l\n" +
-	"\vCommandLine\x12'\n" +
-	"\bpipeline\x18\x01 \x03(\v2\v.pb.CommandR\bpipeline\x12*\n" +
-	"\x05redir\x18\x02 \x01(\v2\x0f.pb.RedirectionH\x00R\x05redir\x88\x01\x01B\b\n" +
-	"\x06_redir\"h\n" +
-	"\aCommand\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12'\n" +
-	"\x05flags\x18\x02 \x03(\v2\x11.pb.FlagWithValueR\x05flags\x12 \n" +
-	"\x04args\x18\x03 \x03(\v2\f.pb.ArgumentR\x04args\"H\n" +
-	"\rFlagWithValue\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x19\n" +
-	"\x05value\x18\x02 \x01(\tH\x00R\x05value\x88\x01\x01B\b\n" +
-	"\x06_value\"/\n" +
-	"\bArgument\x12\x19\n" +
-	"\x05value\x18\x01 \x01(\tH\x00R\x05value\x88\x01\x01B\b\n" +
-	"\x06_value\"!\n" +
-	"\vRedirection\x12\x12\n" +
-	"\x04file\x18\x01 \x01(\tR\x04file2K\n" +
+	".pb.ScriptR\x03ast2K\n" +
 	"\tCmdParser\x12>\n" +
-	"\rCommandParser\x12\x14.pb.CmdParserRequest\x1a\x15.pb.CmdParserResponse\"\x00B\x11Z\x0fpb/cmdparser/pbb\x06proto3"
+	"\rCommandParser\x12\x14.pb.CmdParserRequest\x1a\x15.pb.CmdParserResponse\"\x00B.Z,github.com/BBitQNull/SSHoneyNet/pb/cmdparserb\x06proto3"
 
 var (
 	file_cmdparser_proto_rawDescOnce sync.Once
@@ -449,31 +135,21 @@ func file_cmdparser_proto_rawDescGZIP() []byte {
 	return file_cmdparser_proto_rawDescData
 }
 
-var file_cmdparser_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_cmdparser_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_cmdparser_proto_goTypes = []any{
 	(*CmdParserRequest)(nil),  // 0: pb.CmdParserRequest
 	(*CmdParserResponse)(nil), // 1: pb.CmdParserResponse
-	(*Script)(nil),            // 2: pb.Script
-	(*CommandLine)(nil),       // 3: pb.CommandLine
-	(*Command)(nil),           // 4: pb.Command
-	(*FlagWithValue)(nil),     // 5: pb.FlagWithValue
-	(*Argument)(nil),          // 6: pb.Argument
-	(*Redirection)(nil),       // 7: pb.Redirection
+	(*common.Script)(nil),     // 2: pb.Script
 }
 var file_cmdparser_proto_depIdxs = []int32{
 	2, // 0: pb.CmdParserResponse.ast:type_name -> pb.Script
-	3, // 1: pb.Script.lines:type_name -> pb.CommandLine
-	4, // 2: pb.CommandLine.pipeline:type_name -> pb.Command
-	7, // 3: pb.CommandLine.redir:type_name -> pb.Redirection
-	5, // 4: pb.Command.flags:type_name -> pb.FlagWithValue
-	6, // 5: pb.Command.args:type_name -> pb.Argument
-	0, // 6: pb.CmdParser.CommandParser:input_type -> pb.CmdParserRequest
-	1, // 7: pb.CmdParser.CommandParser:output_type -> pb.CmdParserResponse
-	7, // [7:8] is the sub-list for method output_type
-	6, // [6:7] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	0, // 1: pb.CmdParser.CommandParser:input_type -> pb.CmdParserRequest
+	1, // 2: pb.CmdParser.CommandParser:output_type -> pb.CmdParserResponse
+	2, // [2:3] is the sub-list for method output_type
+	1, // [1:2] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_cmdparser_proto_init() }
@@ -481,16 +157,13 @@ func file_cmdparser_proto_init() {
 	if File_cmdparser_proto != nil {
 		return
 	}
-	file_cmdparser_proto_msgTypes[3].OneofWrappers = []any{}
-	file_cmdparser_proto_msgTypes[5].OneofWrappers = []any{}
-	file_cmdparser_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cmdparser_proto_rawDesc), len(file_cmdparser_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

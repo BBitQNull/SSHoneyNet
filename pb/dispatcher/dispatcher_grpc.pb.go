@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: dispatcher.proto
 
-package pb
+package dispatcher
 
 import (
 	context "context"

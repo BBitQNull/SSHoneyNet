@@ -2,20 +2,22 @@ package convert
 
 import (
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
-	pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
-	pbdis "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"
+	pbcom "github.com/BBitQNull/SSHoneyNet/pb/common"
 )
 
-func ConvertScript(src *commandparser.Script) *pb.Script {
-	return &pb.Script{
+func ConvertScript(src *commandparser.Script) *pbcom.Script {
+	if src == nil {
+		return nil
+	}
+	return &pbcom.Script{
 		Lines: ConvertCmdLines(src.Lines), // slice
 	}
 }
 
-func ConvertCmdLines(src []*commandparser.CommandLine) []*pb.CommandLine {
-	result := make([]*pb.CommandLine, len(src))
+func ConvertCmdLines(src []*commandparser.CommandLine) []*pbcom.CommandLine {
+	result := make([]*pbcom.CommandLine, len(src))
 	for i, comment := range src {
-		result[i] = &pb.CommandLine{
+		result[i] = &pbcom.CommandLine{
 			Pipeline: ConvertPipeline(comment.Pipeline),
 			Redir:    ConvertRedir(comment.Redir),
 		}
@@ -23,10 +25,11 @@ func ConvertCmdLines(src []*commandparser.CommandLine) []*pb.CommandLine {
 	return result
 }
 
-func ConvertPipeline(src []*commandparser.Command) []*pb.Command {
-	result := make([]*pb.Command, len(src))
+func ConvertPipeline(src []*commandparser.Command) []*pbcom.Command {
+	result := make([]*pbcom.Command, len(src))
 	for i, comment := range src {
-		result[i] = &pb.Command{
+		result[i] = &pbcom.Command{
+			Name:  comment.Name,
 			Flags: ConvertFlagWithValue(comment.Flags),
 			Args:  ConvertArgument(comment.Args),
 		}
@@ -34,10 +37,10 @@ func ConvertPipeline(src []*commandparser.Command) []*pb.Command {
 	return result
 }
 
-func ConvertFlagWithValue(src []commandparser.FlagWithValue) []*pb.FlagWithValue {
-	result := make([]*pb.FlagWithValue, len(src))
+func ConvertFlagWithValue(src []commandparser.FlagWithValue) []*pbcom.FlagWithValue {
+	result := make([]*pbcom.FlagWithValue, len(src))
 	for i, comment := range src {
-		result[i] = &pb.FlagWithValue{
+		result[i] = &pbcom.FlagWithValue{
 			Name:  comment.Name,
 			Value: comment.Value,
 		}
@@ -45,29 +48,35 @@ func ConvertFlagWithValue(src []commandparser.FlagWithValue) []*pb.FlagWithValue
 	return result
 }
 
-func ConvertArgument(src []commandparser.Argument) []*pb.Argument {
-	result := make([]*pb.Argument, len(src))
+func ConvertArgument(src []commandparser.Argument) []*pbcom.Argument {
+	result := make([]*pbcom.Argument, len(src))
 	for i, comment := range src {
-		result[i] = &pb.Argument{
+		result[i] = &pbcom.Argument{
 			Value: comment.Value,
 		}
 	}
 	return result
 }
 
-func ConvertRedir(src *commandparser.Redirection) *pb.Redirection {
-	return &pb.Redirection{
+func ConvertRedir(src *commandparser.Redirection) *pbcom.Redirection {
+	if src == nil {
+		return nil
+	}
+	return &pbcom.Redirection{
 		File: src.File,
 	}
 }
 
-func ConvertScriptFormpb(src *pbdis.Script) *commandparser.Script {
+func ConvertScriptFormpb(src *pbcom.Script) *commandparser.Script {
+	if src == nil || len(src.Lines) == 0 {
+		return nil
+	}
 	return &commandparser.Script{
 		Lines: ConvertCmdLinesFrompb(src.Lines), // slice
 	}
 }
 
-func ConvertCmdLinesFrompb(src []*pbdis.CommandLine) []*commandparser.CommandLine {
+func ConvertCmdLinesFrompb(src []*pbcom.CommandLine) []*commandparser.CommandLine {
 	result := make([]*commandparser.CommandLine, len(src))
 	for i, comment := range src {
 		result[i] = &commandparser.CommandLine{
@@ -78,10 +87,11 @@ func ConvertCmdLinesFrompb(src []*pbdis.CommandLine) []*commandparser.CommandLin
 	return result
 }
 
-func ConvertPipelineFrompb(src []*pbdis.Command) []*commandparser.Command {
+func ConvertPipelineFrompb(src []*pbcom.Command) []*commandparser.Command {
 	result := make([]*commandparser.Command, len(src))
 	for i, comment := range src {
 		result[i] = &commandparser.Command{
+			Name:  comment.Name,
 			Flags: ConvertFlagWithValueFrompb(comment.Flags),
 			Args:  ConvertArgumentFrompb(comment.Args),
 		}
@@ -89,7 +99,7 @@ func ConvertPipelineFrompb(src []*pbdis.Command) []*commandparser.Command {
 	return result
 }
 
-func ConvertFlagWithValueFrompb(src []*pbdis.FlagWithValue) []commandparser.FlagWithValue {
+func ConvertFlagWithValueFrompb(src []*pbcom.FlagWithValue) []commandparser.FlagWithValue {
 	result := make([]commandparser.FlagWithValue, len(src))
 	for i, comment := range src {
 		result[i] = commandparser.FlagWithValue{
@@ -100,7 +110,7 @@ func ConvertFlagWithValueFrompb(src []*pbdis.FlagWithValue) []commandparser.Flag
 	return result
 }
 
-func ConvertArgumentFrompb(src []*pbdis.Argument) []commandparser.Argument {
+func ConvertArgumentFrompb(src []*pbcom.Argument) []commandparser.Argument {
 	result := make([]commandparser.Argument, len(src))
 	for i, comment := range src {
 		result[i] = commandparser.Argument{
@@ -110,7 +120,10 @@ func ConvertArgumentFrompb(src []*pbdis.Argument) []commandparser.Argument {
 	return result
 }
 
-func ConvertRedirFrompb(src *pbdis.Redirection) *commandparser.Redirection {
+func ConvertRedirFrompb(src *pbcom.Redirection) *commandparser.Redirection {
+	if src == nil {
+		return nil
+	}
 	return &commandparser.Redirection{
 		File: src.File,
 	}

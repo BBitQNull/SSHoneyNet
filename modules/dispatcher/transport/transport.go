@@ -38,7 +38,7 @@ func NewCmdDispatcherServer(svc dispatcher.CmdDispatcherService) pb.CmdEchoServe
 	}
 }
 
-func (s *grpcServer) CmdEcho(ctx context.Context, req *pb.DispatcherRequest) (*pb.DispatcherResponse, error) {
+func (s *grpcServer) Dispatcher(ctx context.Context, req *pb.DispatcherRequest) (*pb.DispatcherResponse, error) {
 	_, rep, err := s.cmdecho.ServeGRPC(ctx, req)
 	if err != nil {
 		return nil, err

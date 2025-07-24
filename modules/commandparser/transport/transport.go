@@ -20,8 +20,11 @@ type grpcServer struct {
 func decodeGRPCmdParserRequest(_ context.Context, grpcReq interface{}) (interface{}, error) {
 	req, ok := grpcReq.(*pb.CmdParserRequest)
 	if !ok {
-		log.Fatal("failed to assert")
+		log.Printf("failed to assert")
 		return nil, errors.New("failed to assert")
+	}
+	if req.Cmd == "" {
+		return nil, errors.New("empty command not allowed")
 	}
 	return endpoint.CmdParserRequest{Cmd: req.Cmd}, nil
 }
@@ -29,8 +32,11 @@ func decodeGRPCmdParserRequest(_ context.Context, grpcReq interface{}) (interfac
 func encodeGRPCmdParserResponse(_ context.Context, response interface{}) (interface{}, error) {
 	resp, ok := response.(endpoint.CmdParserResponse)
 	if !ok {
-		log.Fatal("failed to assert")
+		log.Printf("failed to assert")
 		return nil, errors.New("failed to assert")
+	}
+	if resp.Ast == nil {
+		return nil, errors.New("empty CmdParserResponse not allowed")
 	}
 	return &pb.CmdParserResponse{Ast: convert.ConvertScript(resp.Ast)}, nil
 }
@@ -45,7 +51,7 @@ func NewGRPCmdParserServer(svc commandparser.CmdParserService) pb.CmdParserServe
 	}
 }
 
-func (s *grpcServer) CmdParser(ctx context.Context, req *pb.CmdParserRequest) (*pb.CmdParserResponse, error) {
+func (s *grpcServer) CommandParser(ctx context.Context, req *pb.CmdParserRequest) (*pb.CmdParserResponse, error) {
 	_, rep, err := s.cmdParser.ServeGRPC(ctx, req)
 	if err != nil {
 		return nil, err

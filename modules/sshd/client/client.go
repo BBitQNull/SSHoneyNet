@@ -38,9 +38,9 @@ type RawRequest struct {
 }
 
 func encodeCmdParserRequest(_ context.Context, request interface{}) (interface{}, error) {
-	req, ok := request.(RawRequest)
+	req, ok := request.(*pb.CmdParserRequest)
 	if !ok {
-		return nil, errors.New("error")
+		return nil, errors.New("encodeCmdParserRequest error")
 	}
 	return &pb.CmdParserRequest{
 		Cmd: req.Cmd,
@@ -50,7 +50,10 @@ func encodeCmdParserRequest(_ context.Context, request interface{}) (interface{}
 func decodeCmdParserResponse(_ context.Context, response interface{}) (interface{}, error) {
 	resp, ok := response.(*pb.CmdParserResponse)
 	if !ok {
-		return nil, errors.New("error")
+		return nil, errors.New("decodeCmdParserResponse error")
+	}
+	if resp.Ast == nil {
+		return nil, errors.New("decodeCmdParserResponse error")
 	}
 	return &pb.CmdParserResponse{Ast: resp.Ast}, nil
 }
@@ -64,7 +67,7 @@ type RawResponse struct {
 func encodeCmdDispatchRequest(_ context.Context, request interface{}) (interface{}, error) {
 	req, ok := request.(*pbdis.DispatcherRequest)
 	if !ok {
-		return nil, errors.New("error")
+		return nil, errors.New("encodeCmdDispatchRequest error")
 	}
 	return req, nil
 }
@@ -72,11 +75,7 @@ func encodeCmdDispatchRequest(_ context.Context, request interface{}) (interface
 func decodeCmdDispatchResponse(_ context.Context, response interface{}) (interface{}, error) {
 	resp, ok := response.(*pbdis.DispatcherResponse)
 	if !ok {
-		return nil, errors.New("error")
+		return nil, errors.New("decodeCmdDispatchResponse error")
 	}
-	return RawResponse{
-		Result:  resp.Cmdresult,
-		ErrCode: resp.Errcode,
-		ErrMsg:  resp.Errmsg,
-	}, nil
+	return resp, nil
 }

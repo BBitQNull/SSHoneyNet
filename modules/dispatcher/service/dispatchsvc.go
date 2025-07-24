@@ -1,8 +1,7 @@
-package service
+package dispatch_service
 
 import (
 	"context"
-	"errors"
 	"sync"
 
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
@@ -14,6 +13,10 @@ type CmdDispatcherServer struct{}
 
 type CmdHandler interface {
 	Execute(ast exescript.ExecCommand) (dispatcher.CmdEcho, error)
+}
+
+func NewDispatcherServer() dispatcher.CmdDispatcherService {
+	return &CmdDispatcherServer{}
 }
 
 var (
@@ -39,8 +42,8 @@ func ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
 					return dispatcher.CmdEcho{
 						CmdResult: "",
 						ErrCode:   1,
-						ErrMsg:    "command not found: " + comment.Name,
-					}, errors.New("command not found:")
+						ErrMsg:    "zsh: command not found: " + comment.Name,
+					}, nil
 				}
 				result, err := handler.Execute(exescript.ExecCommand{
 					Name:  comment.Name,

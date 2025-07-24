@@ -4,7 +4,7 @@
 // - protoc             v5.29.3
 // source: cmdparser.proto
 
-package pb
+package cmdparser
 
 import (
 	context "context"

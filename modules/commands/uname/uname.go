@@ -1,10 +1,10 @@
 package uname
 
 import (
-	"errors"
+	"fmt"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
-	"github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
+	dispatch_service "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
 )
 
@@ -17,31 +17,42 @@ const (
 func (h *UnameHandler) Execute(cmd exescript.ExecCommand) (dispatcher.CmdEcho, error) {
 	if cmd.Name == "uname" {
 		var result dispatcher.CmdEcho
-		for _, flag := range cmd.Flags {
-			switch flag {
-			case "a":
-				return dispatcher.CmdEcho{
-					CmdResult: UNAME_A,
-					ErrCode:   0,
-					ErrMsg:    "",
-				}, nil
-			default:
-				result = dispatcher.CmdEcho{
-					CmdResult: "",
-					ErrCode:   1,
-					ErrMsg:    "uname: illegal option --" + flag + "\nusage: uname [-amnoprsv]",
+		fmt.Println("uname flags:")
+		for k := range cmd.Flags {
+			fmt.Printf("flag key raw bytes: [% x], as string: [%s]\n", []byte(k), k)
+		}
+		if len(cmd.Flags) != 0 {
+			for flag := range cmd.Flags {
+				switch flag {
+				case "a":
+					return dispatcher.CmdEcho{
+						CmdResult: UNAME_A,
+						ErrCode:   0,
+						ErrMsg:    "",
+					}, nil
+				default:
+					result = dispatcher.CmdEcho{
+						CmdResult: "",
+						ErrCode:   1,
+						ErrMsg:    "uname: illegal option --" + flag + "\nusage: uname [-amnoprsv]",
+					}
 				}
 			}
+			return result, nil
 		}
-		return result, errors.New("illegal option")
+		return dispatcher.CmdEcho{
+			CmdResult: UNAME_A,
+			ErrCode:   0,
+			ErrMsg:    "",
+		}, nil
 	}
 	return dispatcher.CmdEcho{
 		CmdResult: "",
 		ErrCode:   1,
 		ErrMsg:    "command not found: " + cmd.Name,
-	}, errors.New("command not found")
+	}, nil
 }
 
 func init() {
-	service.RegisterCmd("uname", &UnameHandler{})
+	dispatch_service.RegisterCmd("uname", &UnameHandler{})
 }

@@ -2,27 +2,29 @@ package parser_service
 
 import (
 	"context"
+	"fmt"
 	"log"
 
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/alecthomas/participle/v2"
 )
 
-type cmdParserService struct{}
+type cmdParserService struct {
+	parser *participle.Parser[commandparser.Script]
+}
 
-func NewCmdParserService() commandparser.CmdParserService {
-	return &cmdParserService{}
+func NewCmdParserService() (commandparser.CmdParserService, error) {
+	parser, err := participle.Build[commandparser.Script]()
+	if err != nil {
+		return nil, fmt.Errorf("failed to build parser: %w", err)
+	}
+	return &cmdParserService{parser: parser}, nil
 }
 
 func (c *cmdParserService) CommandParser(ctx context.Context, cmd string) (*commandparser.Script, error) {
-	parser, err := participle.Build[commandparser.Script]()
+	ast, err := c.parser.ParseString("", cmd)
 	if err != nil {
-		log.Fatal("failed to build parser:", err)
-		return nil, err
-	}
-	ast, err := parser.ParseString("", cmd)
-	if err != nil {
-		log.Fatal("failed to parser cmd: ", err)
+		log.Printf("failed to parse cmd: %v", err)
 		return nil, err
 	}
 	return ast, nil
