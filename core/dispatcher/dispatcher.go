@@ -3,15 +3,15 @@ package dispatcher
 import (
 	"context"
 
-	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
+	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 )
 
 type CmdEcho struct {
 	CmdResult string
-	ErrCode   int16
+	ErrCode   int32
 	ErrMsg    string
 }
 
 type CmdDispatcherService interface {
-	CmdDispatcher(ctx context.Context, ir exescript.ExecScript) (CmdEcho, error)
+	CmdDispatcher(ctx context.Context, ir commandparser.Script) (CmdEcho, error)
 }

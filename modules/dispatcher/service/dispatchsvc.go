@@ -63,6 +63,6 @@ func ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
 	return dispatcher.CmdEcho{}, nil
 }
 func (s *CmdDispatcherServer) CmdDispatcher(ctx context.Context, astReq commandparser.Script) (dispatcher.CmdEcho, error) {
-	// 占位
-	return dispatcher.CmdEcho{}, nil
+	ir := exescript.ConvertScript(&astReq)
+	return ExecuteScript(*ir)
 }

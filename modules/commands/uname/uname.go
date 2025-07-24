@@ -4,6 +4,7 @@ import (
 	"errors"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
+	"github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
 )
 
@@ -39,4 +40,8 @@ func (h *UnameHandler) Execute(cmd exescript.ExecCommand) (dispatcher.CmdEcho, e
 		ErrCode:   1,
 		ErrMsg:    "command not found: " + cmd.Name,
 	}, errors.New("command not found")
+}
+
+func init() {
+	service.RegisterCmd("uname", &UnameHandler{})
 }
