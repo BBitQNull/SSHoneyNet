@@ -4,15 +4,21 @@ import (
 	"fmt"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
-	dispatch_service "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
 )
 
-type UnameHandler struct{}
+type UnameHandler struct {
+	procClient proc_client.ProcManageClient
+}
 
 const (
 	UNAME_A = "Linux myhostname 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
 )
+
+func NewUnameHandler(procClient proc_client.ProcManageClient) *UnameHandler {
+	return &UnameHandler{procClient: procClient}
+}
 
 func (h *UnameHandler) Execute(cmd exescript.ExecCommand) (dispatcher.CmdEcho, error) {
 	if cmd.Name == "uname" {
@@ -51,8 +57,4 @@ func (h *UnameHandler) Execute(cmd exescript.ExecCommand) (dispatcher.CmdEcho, e
 		ErrCode:   1,
 		ErrMsg:    "command not found: " + cmd.Name,
 	}, nil
-}
-
-func init() {
-	dispatch_service.RegisterCmd("uname", &UnameHandler{})
 }

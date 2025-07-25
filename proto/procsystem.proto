@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 service ProcManage {
     rpc CreateProc(ProcRequest) returns (ProcResponse) {}
     rpc KillProc(ProcRequest) returns (ProcResponse) {}
-    rpc LitsProc(ProcRequest) returns (ProcResponse) {}
+    rpc ListProc(ProcRequest) returns (ProcResponse) {}
     rpc GetProc(ProcRequest) returns (ProcResponse) {}
 }
 

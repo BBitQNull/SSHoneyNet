@@ -4,19 +4,27 @@ import (
 	"context"
 	"sync"
 
+	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
 )
 
-type CmdDispatcherServer struct{}
+type CmdDispatcherServer struct {
+	clients    *clientset.ClientSet
+	commandMap map[string]CmdHandler
+	mu         sync.RWMutex
+}
 
 type CmdHandler interface {
 	Execute(ast exescript.ExecCommand) (dispatcher.CmdEcho, error)
 }
 
-func NewDispatcherServer() dispatcher.CmdDispatcherService {
-	return &CmdDispatcherServer{}
+func NewDispatcherServer(clients *clientset.ClientSet) *CmdDispatcherServer {
+	return &CmdDispatcherServer{
+		clients:    clients,
+		commandMap: make(map[string]CmdHandler),
+	}
 }
 
 var (
@@ -24,20 +32,20 @@ var (
 	mu         sync.RWMutex
 )
 
-func RegisterCmd(name string, handler CmdHandler) {
-	mu.Lock()
-	defer mu.Unlock()
-	commandMap[name] = handler
+func (s *CmdDispatcherServer) RegisterCmd(name string, handler CmdHandler) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.commandMap[name] = handler
 }
 
-func ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
-	mu.Lock()
-	defer mu.Unlock()
+func (s *CmdDispatcherServer) ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
 	do := false
 	for _, item := range ir.Lines {
 		for _, comment := range item.Pipeline {
 			if !do {
-				handler, ok := commandMap[comment.Name]
+				handler, ok := s.commandMap[comment.Name]
 				if !ok {
 					return dispatcher.CmdEcho{
 						CmdResult: "",
@@ -65,7 +73,8 @@ func ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
 	// 占位
 	return dispatcher.CmdEcho{}, nil
 }
+
 func (s *CmdDispatcherServer) CmdDispatcher(ctx context.Context, astReq commandparser.Script) (dispatcher.CmdEcho, error) {
 	ir := exescript.ConvertScript(&astReq)
-	return ExecuteScript(*ir)
+	return s.ExecuteScript(*ir)
 }

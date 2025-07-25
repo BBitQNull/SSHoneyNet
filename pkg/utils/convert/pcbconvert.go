@@ -55,10 +55,19 @@ func ConvertPcbListFromEndpoint(src []*procsystem.PCB) []*proc_pb.Pcb {
 	return result
 }
 
-func ConvertPcbLitsFromPb(src []*proc_pb.Pcb) []*procsystem.PCB {
+func ConvertPcbListFromPb(src []*proc_pb.Pcb) []*procsystem.PCB {
 	result := make([]*procsystem.PCB, len(src))
 	for i, item := range src {
 		result[i] = ConvertPcbFromPb(item)
 	}
 	return result
 }
+
+/*
+func ConvertResponseFromPbToRaw(src *proc_pb.ProcResponse) *proc_endpoint.ProcessResponse {
+	return &proc_endpoint.ProcessResponse{
+		PCB:     ConvertPcbFromPb(src.Pcb),
+		PCBList: ConvertPcbLitsFromPb(src.Pcblist),
+	}
+}
+*/

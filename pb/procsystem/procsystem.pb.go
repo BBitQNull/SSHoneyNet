@@ -260,7 +260,7 @@ const file_procsystem_proto_rawDesc = "" +
 	"\n" +
 	"CreateProc\x12\x0f.pb.ProcRequest\x1a\x10.pb.ProcResponse\"\x00\x12/\n" +
 	"\bKillProc\x12\x0f.pb.ProcRequest\x1a\x10.pb.ProcResponse\"\x00\x12/\n" +
-	"\bLitsProc\x12\x0f.pb.ProcRequest\x1a\x10.pb.ProcResponse\"\x00\x12.\n" +
+	"\bListProc\x12\x0f.pb.ProcRequest\x1a\x10.pb.ProcResponse\"\x00\x12.\n" +
 	"\aGetProc\x12\x0f.pb.ProcRequest\x1a\x10.pb.ProcResponse\"\x00B/Z-github.com/BBitQNull/SSHoneyNet/pb/procsystemb\x06proto3"
 
 var (
@@ -289,11 +289,11 @@ var file_procsystem_proto_depIdxs = []int32{
 	3, // 3: pb.Pcb.exitedat:type_name -> google.protobuf.Timestamp
 	0, // 4: pb.ProcManage.CreateProc:input_type -> pb.ProcRequest
 	0, // 5: pb.ProcManage.KillProc:input_type -> pb.ProcRequest
-	0, // 6: pb.ProcManage.LitsProc:input_type -> pb.ProcRequest
+	0, // 6: pb.ProcManage.ListProc:input_type -> pb.ProcRequest
 	0, // 7: pb.ProcManage.GetProc:input_type -> pb.ProcRequest
 	1, // 8: pb.ProcManage.CreateProc:output_type -> pb.ProcResponse
 	1, // 9: pb.ProcManage.KillProc:output_type -> pb.ProcResponse
-	1, // 10: pb.ProcManage.LitsProc:output_type -> pb.ProcResponse
+	1, // 10: pb.ProcManage.ListProc:output_type -> pb.ProcResponse
 	1, // 11: pb.ProcManage.GetProc:output_type -> pb.ProcResponse
 	8, // [8:12] is the sub-list for method output_type
 	4, // [4:8] is the sub-list for method input_type

@@ -21,7 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	ProcManage_CreateProc_FullMethodName = "/pb.ProcManage/CreateProc"
 	ProcManage_KillProc_FullMethodName   = "/pb.ProcManage/KillProc"
-	ProcManage_LitsProc_FullMethodName   = "/pb.ProcManage/LitsProc"
+	ProcManage_ListProc_FullMethodName   = "/pb.ProcManage/ListProc"
 	ProcManage_GetProc_FullMethodName    = "/pb.ProcManage/GetProc"
 )
 
@@ -31,7 +31,7 @@ const (
 type ProcManageClient interface {
 	CreateProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error)
 	KillProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error)
-	LitsProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error)
+	ListProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error)
 	GetProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error)
 }
 
@@ -63,10 +63,10 @@ func (c *procManageClient) KillProc(ctx context.Context, in *ProcRequest, opts .
 	return out, nil
 }
 
-func (c *procManageClient) LitsProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error) {
+func (c *procManageClient) ListProc(ctx context.Context, in *ProcRequest, opts ...grpc.CallOption) (*ProcResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ProcResponse)
-	err := c.cc.Invoke(ctx, ProcManage_LitsProc_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ProcManage_ListProc_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *procManageClient) GetProc(ctx context.Context, in *ProcRequest, opts ..
 type ProcManageServer interface {
 	CreateProc(context.Context, *ProcRequest) (*ProcResponse, error)
 	KillProc(context.Context, *ProcRequest) (*ProcResponse, error)
-	LitsProc(context.Context, *ProcRequest) (*ProcResponse, error)
+	ListProc(context.Context, *ProcRequest) (*ProcResponse, error)
 	GetProc(context.Context, *ProcRequest) (*ProcResponse, error)
 	mustEmbedUnimplementedProcManageServer()
 }
@@ -107,8 +107,8 @@ func (UnimplementedProcManageServer) CreateProc(context.Context, *ProcRequest) (
 func (UnimplementedProcManageServer) KillProc(context.Context, *ProcRequest) (*ProcResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method KillProc not implemented")
 }
-func (UnimplementedProcManageServer) LitsProc(context.Context, *ProcRequest) (*ProcResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method LitsProc not implemented")
+func (UnimplementedProcManageServer) ListProc(context.Context, *ProcRequest) (*ProcResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListProc not implemented")
 }
 func (UnimplementedProcManageServer) GetProc(context.Context, *ProcRequest) (*ProcResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProc not implemented")
@@ -170,20 +170,20 @@ func _ProcManage_KillProc_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ProcManage_LitsProc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProcManage_ListProc_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProcRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ProcManageServer).LitsProc(ctx, in)
+		return srv.(ProcManageServer).ListProc(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ProcManage_LitsProc_FullMethodName,
+		FullMethod: ProcManage_ListProc_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ProcManageServer).LitsProc(ctx, req.(*ProcRequest))
+		return srv.(ProcManageServer).ListProc(ctx, req.(*ProcRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -222,8 +222,8 @@ var ProcManage_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProcManage_KillProc_Handler,
 		},
 		{
-			MethodName: "LitsProc",
-			Handler:    _ProcManage_LitsProc_Handler,
+			MethodName: "ListProc",
+			Handler:    _ProcManage_ListProc_Handler,
 		},
 		{
 			MethodName: "GetProc",
