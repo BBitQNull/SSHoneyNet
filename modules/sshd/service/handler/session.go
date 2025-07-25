@@ -17,7 +17,6 @@ import (
 	"github.com/gliderlabs/ssh"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"google.golang.org/grpc/metadata"
 )
 
 var (
@@ -83,14 +82,10 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 		defer conndispatch.Close()
 		parserendpoint := sshd_client.MakeCmdParserEndpoint(connparser)
 		dispatchendpoint := sshd_client.MakeCmdDispatchEndpoint(conndispatch)
-		// 将sessionID嵌入ctx
+
 		sessionID := string(s.Context().SessionID())
-		md := metadata.New(map[string]string{
-			"session-id": sessionID,
-		})
-		baseCtx := metadata.NewOutgoingContext(context.Background(), md)
 		// 创建shell进程
-		shellResp, err := procClient.CreateProc(baseCtx, &proc_client.RawRequest{
+		shellResp, err := procClient.CreateProc(context.Background(), &proc_client.RawRequest{
 			Command: "/bin/zsh",
 			Pid:     getRandom(),
 			Ppid:    3377,
@@ -110,10 +105,6 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 		SessionPidMap[sessionID] = v.Process.PID
 		SessionPidLock.Unlock()
 
-		// 把 baseCtx 传给后续命令处理，确保 metadata 传递
-		shellCtx := baseCtx
-		md, _ = metadata.FromOutgoingContext(baseCtx)
-		log.Printf("SSH handler outgoing metadata: %+v", md)
 		// 交互
 		for {
 			line, err := rl.Readline()
@@ -140,8 +131,9 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 				continue
 			default:
 				//命令解析
-				parserRespRaw, err := parserendpoint(shellCtx, &pb.CmdParserRequest{
-					Cmd: line,
+				parserRespRaw, err := parserendpoint(context.Background(), &pb.CmdParserRequest{
+					Cmd:       line,
+					Sessionid: sessionID,
 				})
 				if err != nil {
 					log.Printf("parserRespRaw error: %v", err)
@@ -166,8 +158,9 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 					log.Printf("parserRespRaw断言失败")
 					continue
 				}
-				dispatchRespRaw, err := dispatchendpoint(shellCtx, &pbdis.DispatcherRequest{
-					Ast: astReq.Ast,
+				dispatchRespRaw, err := dispatchendpoint(context.Background(), &pbdis.DispatcherRequest{
+					Ast:       astReq.Ast,
+					SessionID: sessionID,
 				})
 				if err != nil {
 					log.Printf("dispatchRespRaw error: %v", err)

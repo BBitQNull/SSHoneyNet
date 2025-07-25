@@ -17,7 +17,7 @@ type grpcServer struct {
 	cmdParser grpctransport.Handler
 }
 
-func decodeGRPCmdParserRequest(_ context.Context, grpcReq interface{}) (interface{}, error) {
+func decodeGRPCmdParserRequest(ctx context.Context, grpcReq interface{}) (interface{}, error) {
 	req, ok := grpcReq.(*pb.CmdParserRequest)
 	if !ok {
 		log.Printf("failed to assert")
@@ -26,7 +26,10 @@ func decodeGRPCmdParserRequest(_ context.Context, grpcReq interface{}) (interfac
 	if req.Cmd == "" {
 		return nil, errors.New("empty command not allowed")
 	}
-	return endpoint.CmdParserRequest{Cmd: req.Cmd}, nil
+	return endpoint.CmdParserRequest{
+		Cmd:       req.Cmd,
+		SessionID: req.Sessionid,
+	}, nil
 }
 
 func encodeGRPCmdParserResponse(_ context.Context, response interface{}) (interface{}, error) {

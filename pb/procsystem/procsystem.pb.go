@@ -27,6 +27,7 @@ type ProcRequest struct {
 	Command       string                 `protobuf:"bytes,1,opt,name=command,proto3" json:"command,omitempty"`
 	Pid           int64                  `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
 	Ppid          int64                  `protobuf:"varint,3,opt,name=ppid,proto3" json:"ppid,omitempty"`
+	SessionID     string                 `protobuf:"bytes,4,opt,name=sessionID,proto3" json:"sessionID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -80,6 +81,13 @@ func (x *ProcRequest) GetPpid() int64 {
 		return x.Ppid
 	}
 	return 0
+}
+
+func (x *ProcRequest) GetSessionID() string {
+	if x != nil {
+		return x.SessionID
+	}
+	return ""
 }
 
 type ProcResponse struct {
@@ -238,11 +246,12 @@ var File_procsystem_proto protoreflect.FileDescriptor
 
 const file_procsystem_proto_rawDesc = "" +
 	"\n" +
-	"\x10procsystem.proto\x12\x02pb\x1a\x1fgoogle/protobuf/timestamp.proto\"M\n" +
+	"\x10procsystem.proto\x12\x02pb\x1a\x1fgoogle/protobuf/timestamp.proto\"k\n" +
 	"\vProcRequest\x12\x18\n" +
 	"\acommand\x18\x01 \x01(\tR\acommand\x12\x10\n" +
 	"\x03pid\x18\x02 \x01(\x03R\x03pid\x12\x12\n" +
-	"\x04ppid\x18\x03 \x01(\x03R\x04ppid\"L\n" +
+	"\x04ppid\x18\x03 \x01(\x03R\x04ppid\x12\x1c\n" +
+	"\tsessionID\x18\x04 \x01(\tR\tsessionID\"L\n" +
 	"\fProcResponse\x12\x19\n" +
 	"\x03pcb\x18\x01 \x01(\v2\a.pb.PcbR\x03pcb\x12!\n" +
 	"\apcblist\x18\x02 \x03(\v2\a.pb.PcbR\apcblist\"\xf5\x01\n" +

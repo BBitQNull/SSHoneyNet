@@ -16,7 +16,10 @@ type grpcServer struct {
 
 func decodeGRPCCmdDispatcher(_ context.Context, grpcReq interface{}) (interface{}, error) {
 	req := grpcReq.(*pb.DispatcherRequest)
-	return endpoint.CmdDispatchRequest{Ast: *convert.ConvertScriptFormpb(req.Ast)}, nil
+	return endpoint.CmdDispatchRequest{
+		Ast:       *convert.ConvertScriptFormpb(req.Ast),
+		SessionID: req.SessionID,
+	}, nil
 }
 
 func encodeGRPCCmdDispatcher(_ context.Context, response interface{}) (interface{}, error) {

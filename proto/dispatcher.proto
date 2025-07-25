@@ -12,6 +12,7 @@ service CmdEcho {
 
 message DispatcherRequest {
     pb.Script ast = 1;
+    string sessionID = 2;
 }
 
 message DispatcherResponse {

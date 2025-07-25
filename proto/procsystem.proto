@@ -17,6 +17,7 @@ message ProcRequest {
     string command = 1;
     int64 pid = 2;
     int64 ppid = 3;
+    string sessionID = 4;
 }
 
 message ProcResponse {

@@ -25,6 +25,7 @@ const (
 type DispatcherRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ast           *common.Script         `protobuf:"bytes,1,opt,name=ast,proto3" json:"ast,omitempty"`
+	SessionID     string                 `protobuf:"bytes,2,opt,name=sessionID,proto3" json:"sessionID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,6 +65,13 @@ func (x *DispatcherRequest) GetAst() *common.Script {
 		return x.Ast
 	}
 	return nil
+}
+
+func (x *DispatcherRequest) GetSessionID() string {
+	if x != nil {
+		return x.SessionID
+	}
+	return ""
 }
 
 type DispatcherResponse struct {
@@ -130,10 +138,11 @@ var File_dispatcher_proto protoreflect.FileDescriptor
 
 const file_dispatcher_proto_rawDesc = "" +
 	"\n" +
-	"\x10dispatcher.proto\x12\x02pb\x1a\fcommon.proto\"1\n" +
+	"\x10dispatcher.proto\x12\x02pb\x1a\fcommon.proto\"O\n" +
 	"\x11DispatcherRequest\x12\x1c\n" +
 	"\x03ast\x18\x01 \x01(\v2\n" +
-	".pb.ScriptR\x03ast\"d\n" +
+	".pb.ScriptR\x03ast\x12\x1c\n" +
+	"\tsessionID\x18\x02 \x01(\tR\tsessionID\"d\n" +
 	"\x12DispatcherResponse\x12\x1c\n" +
 	"\tcmdresult\x18\x01 \x01(\tR\tcmdresult\x12\x18\n" +
 	"\aerrcode\x18\x02 \x01(\x05R\aerrcode\x12\x16\n" +

@@ -12,6 +12,7 @@ service CmdParser {
 
 message CmdParserRequest {
     string cmd = 1;
+    string sessionid = 2;
 }
 
 message CmdParserResponse {

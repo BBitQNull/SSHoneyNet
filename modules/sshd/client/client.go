@@ -37,13 +37,14 @@ type RawRequest struct {
 	Cmd string
 }
 
-func encodeCmdParserRequest(_ context.Context, request interface{}) (interface{}, error) {
+func encodeCmdParserRequest(ctx context.Context, request interface{}) (interface{}, error) {
 	req, ok := request.(*pb.CmdParserRequest)
 	if !ok {
 		return nil, errors.New("encodeCmdParserRequest error")
 	}
 	return &pb.CmdParserRequest{
-		Cmd: req.Cmd,
+		Cmd:       req.Cmd,
+		Sessionid: req.Sessionid,
 	}, nil
 }
 

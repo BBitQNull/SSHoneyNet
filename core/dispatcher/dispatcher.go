@@ -13,5 +13,5 @@ type CmdEcho struct {
 }
 
 type CmdDispatcherService interface {
-	CmdDispatcher(ctx context.Context, ir commandparser.Script) (CmdEcho, error)
+	CmdDispatcher(ctx context.Context, ir commandparser.Script, sessionID string) (CmdEcho, error)
 }

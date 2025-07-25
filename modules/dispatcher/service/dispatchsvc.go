@@ -19,7 +19,7 @@ type CmdDispatcherServer struct {
 }
 
 type CmdHandler interface {
-	Execute(ctx context.Context, ast exescript.ExecCommand) (dispatcher.CmdEcho, error)
+	Execute(ctx context.Context, ast exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error)
 }
 
 func NewDispatcherServer(clients *clientset.ClientSet) *CmdDispatcherServer {
@@ -40,7 +40,7 @@ func (s *CmdDispatcherServer) RegisterCmd(name string, handler CmdHandler) {
 	s.commandMap[name] = handler
 }
 
-func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
+func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.ExecScript, sessionID string) (dispatcher.CmdEcho, error) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	do := false
@@ -59,7 +59,7 @@ func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.Ex
 					Name:  comment.Name,
 					Flags: comment.Flags,
 					Args:  comment.Args,
-				})
+				}, sessionID)
 				md, ok := metadata.FromIncomingContext(ctx)
 				log.Printf("CmdHandler.Execute metadata: %+v, ok=%v", md, ok)
 				if err != nil {
@@ -78,13 +78,7 @@ func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.Ex
 	return dispatcher.CmdEcho{}, nil
 }
 
-func (s *CmdDispatcherServer) CmdDispatcher(ctx context.Context, astReq commandparser.Script) (dispatcher.CmdEcho, error) {
+func (s *CmdDispatcherServer) CmdDispatcher(ctx context.Context, astReq commandparser.Script, sessionID string) (dispatcher.CmdEcho, error) {
 	ir := exescript.ConvertScript(&astReq)
-	md, ok := metadata.FromIncomingContext(ctx)
-	if !ok {
-		log.Println("CmdDispatcherServer.CmdDispatcher no metadata")
-	} else {
-		log.Printf("CmdDispatcherServer.CmdDispatcher metadata: %+v", md)
-	}
-	return s.ExecuteScript(ctx, *ir)
+	return s.ExecuteScript(ctx, *ir, sessionID)
 }

@@ -3,6 +3,7 @@ package endpoint
 import (
 	"context"
 	"errors"
+	"log"
 
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
@@ -10,7 +11,8 @@ import (
 )
 
 type CmdDispatchRequest struct {
-	Ast commandparser.Script
+	Ast       commandparser.Script
+	SessionID string
 }
 
 type CmdDispatchResponse struct {
@@ -23,7 +25,8 @@ func MakeCmdDispatch(svc dispatcher.CmdDispatcherService) endpoint.Endpoint {
 		if !ok {
 			return nil, errors.New("error")
 		}
-		result, err := svc.CmdDispatcher(ctx, req.Ast)
+		log.Println("sessionID:", req.SessionID)
+		result, err := svc.CmdDispatcher(ctx, req.Ast, req.SessionID)
 		if err != nil {
 			return nil, err
 		}

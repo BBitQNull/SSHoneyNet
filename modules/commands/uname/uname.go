@@ -21,7 +21,7 @@ func NewUnameHandler(procClient proc_client.ProcManageClient) *UnameHandler {
 	return &UnameHandler{procClient: procClient}
 }
 
-func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand) (dispatcher.CmdEcho, error) {
+func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {
 	if cmd.Name == "uname" {
 		var result dispatcher.CmdEcho
 		fmt.Println("uname flags:")

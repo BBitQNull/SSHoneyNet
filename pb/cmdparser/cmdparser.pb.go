@@ -25,6 +25,7 @@ const (
 type CmdParserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Cmd           string                 `protobuf:"bytes,1,opt,name=cmd,proto3" json:"cmd,omitempty"`
+	Sessionid     string                 `protobuf:"bytes,2,opt,name=sessionid,proto3" json:"sessionid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,6 +63,13 @@ func (*CmdParserRequest) Descriptor() ([]byte, []int) {
 func (x *CmdParserRequest) GetCmd() string {
 	if x != nil {
 		return x.Cmd
+	}
+	return ""
+}
+
+func (x *CmdParserRequest) GetSessionid() string {
+	if x != nil {
+		return x.Sessionid
 	}
 	return ""
 }
@@ -114,9 +122,10 @@ var File_cmdparser_proto protoreflect.FileDescriptor
 
 const file_cmdparser_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcmdparser.proto\x12\x02pb\x1a\fcommon.proto\"$\n" +
+	"\x0fcmdparser.proto\x12\x02pb\x1a\fcommon.proto\"B\n" +
 	"\x10CmdParserRequest\x12\x10\n" +
-	"\x03cmd\x18\x01 \x01(\tR\x03cmd\"1\n" +
+	"\x03cmd\x18\x01 \x01(\tR\x03cmd\x12\x1c\n" +
+	"\tsessionid\x18\x02 \x01(\tR\tsessionid\"1\n" +
 	"\x11CmdParserResponse\x12\x1c\n" +
 	"\x03ast\x18\x01 \x01(\v2\n" +
 	".pb.ScriptR\x03ast2K\n" +
