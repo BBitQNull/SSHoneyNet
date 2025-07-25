@@ -13,7 +13,12 @@ import (
 type ProcessTable struct {
 	mu      sync.RWMutex
 	process map[int64]*(procsystem.PCB)
-	nextPID int64
+}
+
+func NewProcessServer() *ProcessTable {
+	return &ProcessTable{
+		process: make(map[int64]*procsystem.PCB),
+	}
 }
 
 func (pt *ProcessTable) CreateProcess(ctx context.Context, name string, pid int64, ppid int64) (*procsystem.PCB, error) {

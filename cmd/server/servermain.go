@@ -9,8 +9,11 @@ import (
 	_ "github.com/BBitQNull/SSHoneyNet/modules/commands/uname"
 	dispatch_service "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
 	dispatch_transport "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/transport"
-	parserPb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
-	dispatchPb "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"
+	process_service "github.com/BBitQNull/SSHoneyNet/modules/procsystem/service"
+	proc_transport "github.com/BBitQNull/SSHoneyNet/modules/procsystem/transport"
+	parser_Pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
+	dispatch_Pb "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"
+	proc_Pb "github.com/BBitQNull/SSHoneyNet/pb/procsystem"
 	"google.golang.org/grpc"
 )
 
@@ -26,7 +29,7 @@ func main() {
 		return
 	}
 	parserS := grpc.NewServer()
-	parserPb.RegisterCmdParserServer(parserS, parserGs)
+	parser_Pb.RegisterCmdParserServer(parserS, parserGs)
 	go func() {
 		err = parserS.Serve(parserListener)
 		if err != nil {
@@ -42,9 +45,25 @@ func main() {
 		return
 	}
 	dispatchS := grpc.NewServer()
-	dispatchPb.RegisterCmdEchoServer(dispatchS, dispatchGs)
+	dispatch_Pb.RegisterCmdEchoServer(dispatchS, dispatchGs)
 	go func() {
 		err = dispatchS.Serve(dispatchListener)
+		if err != nil {
+			return
+		}
+	}()
+
+	// 进程系统
+	procSvc := process_service.NewProcessServer()
+	procGs := proc_transport.NewGRPCProcServer(procSvc)
+	procListener, err := net.Listen("tcp", ":9003")
+	if err != nil {
+		return
+	}
+	procS := grpc.NewServer()
+	proc_Pb.RegisterProcManageServer(procS, procGs)
+	go func() {
+		err = procS.Serve(procListener)
 		if err != nil {
 			return
 		}

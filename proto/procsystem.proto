@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package="github.com/BBitQNull/SSHoneyNet/pb/procsystem";
+
+import "google/protobuf/timestamp.proto";
+
+service ProcManage {
+    rpc CreateProc(ProcRequest) returns (ProcResponse) {}
+    rpc KillProc(ProcRequest) returns (ProcResponse) {}
+    rpc LitsProc(ProcRequest) returns (ProcResponse) {}
+    rpc GetProc(ProcRequest) returns (ProcResponse) {}
+}
+
+message ProcRequest {
+    string command = 1;
+    int64 pid = 2;
+    int64 ppid = 3;
+}
+
+message ProcResponse {
+    Pcb pcb = 1;
+    repeated Pcb pcblist = 2;
+}
+
+message Pcb {
+    int64 pid = 1;    
+	int64 ppid = 2;      
+	int64 tgid = 3;      
+	string command = 4;  
+	string state = 5;
+	string user = 6;
+	google.protobuf.Timestamp createdat = 7;
+	google.protobuf.Timestamp exitedat = 8;
+}
