@@ -2,12 +2,14 @@ package dispatch_service
 
 import (
 	"context"
+	"log"
 	"sync"
 
 	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
+	"google.golang.org/grpc/metadata"
 )
 
 type CmdDispatcherServer struct {
@@ -17,7 +19,7 @@ type CmdDispatcherServer struct {
 }
 
 type CmdHandler interface {
-	Execute(ast exescript.ExecCommand) (dispatcher.CmdEcho, error)
+	Execute(ctx context.Context, ast exescript.ExecCommand) (dispatcher.CmdEcho, error)
 }
 
 func NewDispatcherServer(clients *clientset.ClientSet) *CmdDispatcherServer {
@@ -38,7 +40,7 @@ func (s *CmdDispatcherServer) RegisterCmd(name string, handler CmdHandler) {
 	s.commandMap[name] = handler
 }
 
-func (s *CmdDispatcherServer) ExecuteScript(ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
+func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.ExecScript) (dispatcher.CmdEcho, error) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	do := false
@@ -53,11 +55,13 @@ func (s *CmdDispatcherServer) ExecuteScript(ir exescript.ExecScript) (dispatcher
 						ErrMsg:    "zsh: command not found: " + comment.Name,
 					}, nil
 				}
-				result, err := handler.Execute(exescript.ExecCommand{
+				result, err := handler.Execute(ctx, exescript.ExecCommand{
 					Name:  comment.Name,
 					Flags: comment.Flags,
 					Args:  comment.Args,
 				})
+				md, ok := metadata.FromIncomingContext(ctx)
+				log.Printf("CmdHandler.Execute metadata: %+v, ok=%v", md, ok)
 				if err != nil {
 					// 临时
 					return dispatcher.CmdEcho{
@@ -76,5 +80,11 @@ func (s *CmdDispatcherServer) ExecuteScript(ir exescript.ExecScript) (dispatcher
 
 func (s *CmdDispatcherServer) CmdDispatcher(ctx context.Context, astReq commandparser.Script) (dispatcher.CmdEcho, error) {
 	ir := exescript.ConvertScript(&astReq)
-	return s.ExecuteScript(*ir)
+	md, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		log.Println("CmdDispatcherServer.CmdDispatcher no metadata")
+	} else {
+		log.Printf("CmdDispatcherServer.CmdDispatcher metadata: %+v", md)
+	}
+	return s.ExecuteScript(ctx, *ir)
 }

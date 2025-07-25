@@ -3,9 +3,13 @@ package handler
 import (
 	"context"
 	"log"
+	"math/rand"
 	"regexp"
 	"strings"
+	"sync"
+	"time"
 
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
 	sshd_client "github.com/BBitQNull/SSHoneyNet/modules/sshd/client"
 	pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
 	pbdis "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"
@@ -13,14 +17,23 @@ import (
 	"github.com/gliderlabs/ssh"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/metadata"
 )
 
 var (
-	re1to9  = regexp.MustCompile(`^[1-9]$`)
-	e10plus = regexp.MustCompile(`^[1-9]\d+$`)
+	re1to9         = regexp.MustCompile(`^[1-9]$`)
+	e10plus        = regexp.MustCompile(`^[1-9]\d+$`)
+	rng            = rand.New(rand.NewSource(time.Now().UnixNano()))
+	min, max       = 3378, 4679
+	SessionPidMap  = make(map[string]int64)
+	SessionPidLock sync.RWMutex
 )
 
-func SessionHandler() ssh.Handler {
+func getRandom() int64 {
+	return int64(min + rand.Intn(max-min))
+}
+
+func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 	return func(s ssh.Session) {
 		var rl *readline.Instance
 		var err error
@@ -52,7 +65,6 @@ func SessionHandler() ssh.Handler {
 		}
 		defer rl.Close()
 
-		// sessionID := string(s.Context().SessionID())
 		connparser, err := grpc.NewClient(
 			"127.0.0.1:9001",
 			grpc.WithTransportCredentials(insecure.NewCredentials()),
@@ -71,6 +83,38 @@ func SessionHandler() ssh.Handler {
 		defer conndispatch.Close()
 		parserendpoint := sshd_client.MakeCmdParserEndpoint(connparser)
 		dispatchendpoint := sshd_client.MakeCmdDispatchEndpoint(conndispatch)
+		// 将sessionID嵌入ctx
+		sessionID := string(s.Context().SessionID())
+		md := metadata.New(map[string]string{
+			"session-id": sessionID,
+		})
+		baseCtx := metadata.NewOutgoingContext(context.Background(), md)
+		// 创建shell进程
+		shellResp, err := procClient.CreateProc(baseCtx, &proc_client.RawRequest{
+			Command: "/bin/zsh",
+			Pid:     getRandom(),
+			Ppid:    3377,
+		})
+		if err != nil {
+			log.Printf("Failed to create shell process: %v", err)
+			s.Exit(1)
+			return
+		}
+		v, ok := shellResp.(*proc_client.RawProcResponse)
+		if !ok {
+			log.Printf("shellResp type: %T", shellResp)
+			log.Printf("assert fail shellResp")
+			return
+		}
+		SessionPidLock.Lock()
+		SessionPidMap[sessionID] = v.Process.PID
+		SessionPidLock.Unlock()
+
+		// 把 baseCtx 传给后续命令处理，确保 metadata 传递
+		shellCtx := baseCtx
+		md, _ = metadata.FromOutgoingContext(baseCtx)
+		log.Printf("SSH handler outgoing metadata: %+v", md)
+		// 交互
 		for {
 			line, err := rl.Readline()
 			if err != nil {
@@ -96,7 +140,7 @@ func SessionHandler() ssh.Handler {
 				continue
 			default:
 				//命令解析
-				parserRespRaw, err := parserendpoint(context.Background(), &pb.CmdParserRequest{
+				parserRespRaw, err := parserendpoint(shellCtx, &pb.CmdParserRequest{
 					Cmd: line,
 				})
 				if err != nil {
@@ -117,14 +161,22 @@ func SessionHandler() ssh.Handler {
 					continue
 				}
 				// 命令调用
-				astReq := parserRespRaw.(*pb.CmdParserResponse)
-				dispatchRespRaw, err := dispatchendpoint(context.Background(), &pbdis.DispatcherRequest{
+				astReq, ok := parserRespRaw.(*pb.CmdParserResponse)
+				if !ok {
+					log.Printf("parserRespRaw断言失败")
+					continue
+				}
+				dispatchRespRaw, err := dispatchendpoint(shellCtx, &pbdis.DispatcherRequest{
 					Ast: astReq.Ast,
 				})
 				if err != nil {
 					log.Printf("dispatchRespRaw error: %v", err)
 				}
-				result := dispatchRespRaw.(*pbdis.DispatcherResponse)
+				result, ok := dispatchRespRaw.(*pbdis.DispatcherResponse)
+				if !ok {
+					log.Printf("dispatchRespRaw断言失败")
+					continue
+				}
 				if result.Errcode == 0 {
 					rl.Write([]byte(result.Cmdresult + "\n"))
 				} else {

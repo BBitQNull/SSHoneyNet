@@ -1,6 +1,7 @@
 package uname
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
@@ -20,7 +21,7 @@ func NewUnameHandler(procClient proc_client.ProcManageClient) *UnameHandler {
 	return &UnameHandler{procClient: procClient}
 }
 
-func (h *UnameHandler) Execute(cmd exescript.ExecCommand) (dispatcher.CmdEcho, error) {
+func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand) (dispatcher.CmdEcho, error) {
 	if cmd.Name == "uname" {
 		var result dispatcher.CmdEcho
 		fmt.Println("uname flags:")

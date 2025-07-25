@@ -7,6 +7,7 @@ import (
 	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	parser_service "github.com/BBitQNull/SSHoneyNet/modules/commandparser/service"
 	parser_transport "github.com/BBitQNull/SSHoneyNet/modules/commandparser/transport"
+	"github.com/BBitQNull/SSHoneyNet/modules/commands/ps"
 	"github.com/BBitQNull/SSHoneyNet/modules/commands/uname"
 	dispatch_service "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
 	dispatch_transport "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/transport"
@@ -76,8 +77,12 @@ func main() {
 	// dispatcher初始化
 	dispatchSvc := dispatch_service.NewDispatcherServer(clients)
 	// 命令注册
+	// uname
 	unameHandler := uname.NewUnameHandler(clients.ProcClient)
 	dispatchSvc.RegisterCmd("uname", unameHandler)
+	// ps
+	psHandler := ps.NewPsHandler(clients.ProcClient)
+	dispatchSvc.RegisterCmd("ps", psHandler)
 
 	// dispatcher 启动
 	dispatchGs := dispatch_transport.NewCmdDispatcherServer(dispatchSvc)
@@ -95,7 +100,7 @@ func main() {
 	}()
 
 	// sshd启动
-	sshd_service.NewSSHDService().StartSSHServer()
+	sshd_service.NewSSHDService(clients.ProcClient).StartSSHServer()
 
 	select {}
 }

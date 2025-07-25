@@ -29,7 +29,7 @@ func (pt *ProcessTable) CreateProcess(ctx context.Context, name string, pid int6
 		Command:   name,
 		TGID:      pid,
 		PPID:      ppid,
-		State:     "S",
+		State:     "R",
 		CreatedAt: time.Now(),
 		ExitedAt:  nil,
 	}
@@ -76,7 +76,7 @@ func (pt *ProcessTable) CleanupZumbies(ttl time.Duration) {
 		if proc.State == "Z" && proc.ExitedAt != nil {
 			if now.Sub(*proc.ExitedAt) > ttl {
 				delete(pt.process, pid)
-				fmt.Printf("[Reaper] Cleaned up process &d\n", pid)
+				fmt.Printf("[Reaper] Cleaned up process %d\n", pid)
 			}
 		}
 	}

@@ -9,6 +9,13 @@ import (
 )
 
 func ConvertPcbFromEndpoint(src *procsystem.PCB) *proc_pb.Pcb {
+	if src == nil {
+		return nil
+	}
+	var exitedAtPb *timestamppb.Timestamp
+	if src.ExitedAt != nil {
+		exitedAtPb = timestamppb.New(*src.ExitedAt)
+	}
 	return &proc_pb.Pcb{
 		Pid:       src.PID,
 		Ppid:      src.PPID,
@@ -17,11 +24,14 @@ func ConvertPcbFromEndpoint(src *procsystem.PCB) *proc_pb.Pcb {
 		Tgid:      src.TGID,
 		User:      src.User,
 		Createdat: timestamppb.New(src.CreatedAt),
-		Exitedat:  timestamppb.New(*src.ExitedAt),
+		Exitedat:  exitedAtPb,
 	}
 }
 
 func ConvertPcbFromPb(src *proc_pb.Pcb) *procsystem.PCB {
+	if src == nil {
+		return nil
+	}
 	return &procsystem.PCB{
 		PID:     src.Pid,
 		PPID:    src.Ppid,
@@ -48,26 +58,31 @@ func ProtoTimestampToPtr(ts *timestamppb.Timestamp) *time.Time {
 }
 
 func ConvertPcbListFromEndpoint(src []*procsystem.PCB) []*proc_pb.Pcb {
+	if src == nil {
+		return nil
+	}
 	result := make([]*proc_pb.Pcb, len(src))
 	for i, item := range src {
+		if item == nil {
+			result[i] = nil
+			continue
+		}
 		result[i] = ConvertPcbFromEndpoint(item)
 	}
 	return result
 }
 
 func ConvertPcbListFromPb(src []*proc_pb.Pcb) []*procsystem.PCB {
+	if src == nil {
+		return nil
+	}
 	result := make([]*procsystem.PCB, len(src))
 	for i, item := range src {
+		if item == nil {
+			result[i] = nil
+			continue
+		}
 		result[i] = ConvertPcbFromPb(item)
 	}
 	return result
 }
-
-/*
-func ConvertResponseFromPbToRaw(src *proc_pb.ProcResponse) *proc_endpoint.ProcessResponse {
-	return &proc_endpoint.ProcessResponse{
-		PCB:     ConvertPcbFromPb(src.Pcb),
-		PCBList: ConvertPcbLitsFromPb(src.Pcblist),
-	}
-}
-*/
