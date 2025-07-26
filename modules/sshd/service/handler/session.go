@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	sshd_client "github.com/BBitQNull/SSHoneyNet/modules/sshd/client"
 	pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
 	pbdis "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"

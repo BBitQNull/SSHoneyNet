@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"github.com/BBitQNull/SSHoneyNet/modules/sshd/service/handler"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/auth"
 	"github.com/gliderlabs/ssh"

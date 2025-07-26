@@ -2,7 +2,7 @@ package sshd_service
 
 import (
 	"github.com/BBitQNull/SSHoneyNet/core/sshd"
-	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	sshserver "github.com/BBitQNull/SSHoneyNet/modules/sshd/service/sshserver"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/auth"
 )
