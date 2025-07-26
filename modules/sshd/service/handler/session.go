@@ -132,8 +132,7 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 			default:
 				//命令解析
 				parserRespRaw, err := parserendpoint(context.Background(), &pb.CmdParserRequest{
-					Cmd:       line,
-					Sessionid: sessionID,
+					Cmd: line,
 				})
 				if err != nil {
 					log.Printf("parserRespRaw error: %v", err)

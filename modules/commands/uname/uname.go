@@ -2,7 +2,6 @@ package uname
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
 	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
@@ -24,10 +23,6 @@ func NewUnameHandler(procClient proc_client.ProcManageClient) *UnameHandler {
 func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {
 	if cmd.Name == "uname" {
 		var result dispatcher.CmdEcho
-		fmt.Println("uname flags:")
-		for k := range cmd.Flags {
-			fmt.Printf("flag key raw bytes: [% x], as string: [%s]\n", []byte(k), k)
-		}
 		if len(cmd.Flags) != 0 {
 			for flag := range cmd.Flags {
 				switch flag {
@@ -48,7 +43,7 @@ func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, s
 			return result, nil
 		}
 		return dispatcher.CmdEcho{
-			CmdResult: UNAME_A,
+			CmdResult: "Linux",
 			ErrCode:   0,
 			ErrMsg:    "",
 		}, nil

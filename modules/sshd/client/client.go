@@ -43,8 +43,7 @@ func encodeCmdParserRequest(ctx context.Context, request interface{}) (interface
 		return nil, errors.New("encodeCmdParserRequest error")
 	}
 	return &pb.CmdParserRequest{
-		Cmd:       req.Cmd,
-		Sessionid: req.Sessionid,
+		Cmd: req.Cmd,
 	}, nil
 }
 

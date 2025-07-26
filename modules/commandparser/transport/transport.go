@@ -27,8 +27,7 @@ func decodeGRPCmdParserRequest(ctx context.Context, grpcReq interface{}) (interf
 		return nil, errors.New("empty command not allowed")
 	}
 	return endpoint.CmdParserRequest{
-		Cmd:       req.Cmd,
-		SessionID: req.Sessionid,
+		Cmd: req.Cmd,
 	}, nil
 }
 

@@ -21,7 +21,7 @@ func NewCmdParserService() (commandparser.CmdParserService, error) {
 	return &cmdParserService{parser: parser}, nil
 }
 
-func (c *cmdParserService) CommandParser(ctx context.Context, cmd string, sessionID string) (*commandparser.Script, error) {
+func (c *cmdParserService) CommandParser(ctx context.Context, cmd string) (*commandparser.Script, error) {
 	ast, err := c.parser.ParseString("", cmd)
 	if err != nil {
 		log.Printf("failed to parse cmd: %v", err)

@@ -2,14 +2,12 @@ package dispatch_service
 
 import (
 	"context"
-	"log"
 	"sync"
 
 	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
-	"google.golang.org/grpc/metadata"
 )
 
 type CmdDispatcherServer struct {
@@ -60,8 +58,6 @@ func (s *CmdDispatcherServer) ExecuteScript(ctx context.Context, ir exescript.Ex
 					Flags: comment.Flags,
 					Args:  comment.Args,
 				}, sessionID)
-				md, ok := metadata.FromIncomingContext(ctx)
-				log.Printf("CmdHandler.Execute metadata: %+v, ok=%v", md, ok)
 				if err != nil {
 					// 临时
 					return dispatcher.CmdEcho{

@@ -16,9 +16,11 @@ type ProcessTable struct {
 }
 
 func NewProcessServer() *ProcessTable {
-	return &ProcessTable{
+	pt := &ProcessTable{
 		process: make(map[int64]*procsystem.PCB),
 	}
+	StartReaper(pt, 2*time.Second, 7*time.Second)
+	return pt
 }
 
 func (pt *ProcessTable) CreateProcess(ctx context.Context, name string, pid int64, ppid int64) (*procsystem.PCB, error) {

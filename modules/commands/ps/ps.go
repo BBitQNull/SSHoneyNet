@@ -3,7 +3,6 @@ package ps
 import (
 	"context"
 	"log"
-	"time"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
 	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
@@ -22,8 +21,6 @@ func NewPsHandler(procClient proc_client.ProcManageClient) *PsHandler {
 }
 
 func (h *PsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {
-	// 查询对应 shell pid
-	log.Println("sessionID:", sessionID)
 	handler.SessionPidLock.RLock()
 	shellPid, ok := handler.SessionPidMap[sessionID]
 	handler.SessionPidLock.RUnlock()
@@ -43,7 +40,6 @@ func (h *PsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sess
 	if err != nil {
 		log.Panicln("CreateProc ps error")
 	}
-	time.Sleep(10 * time.Millisecond)
 
 	defer func() {
 		_, err := h.procClient.KillProc(ctx, &proc_client.RawRequest{
@@ -77,10 +73,6 @@ func (h *PsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sess
 			}
 			procs = append(procs, p)
 		}
-	}
-	log.Printf("ListProc got %d processes", len(v.Processes))
-	for _, item := range v.Processes {
-		log.Printf("PID=%d PPID=%d CMD=%s STATE=%s", item.PID, item.PPID, item.Command, item.State)
 	}
 
 	return dispatcher.CmdEcho{

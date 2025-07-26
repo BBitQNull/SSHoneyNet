@@ -5,7 +5,7 @@ import (
 )
 
 type CmdParserService interface {
-	CommandParser(ctx context.Context, cmd string, sessionID string) (*Script, error)
+	CommandParser(ctx context.Context, cmd string) (*Script, error)
 }
 
 type Script struct {

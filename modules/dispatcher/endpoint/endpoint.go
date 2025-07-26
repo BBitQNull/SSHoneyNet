@@ -3,7 +3,6 @@ package endpoint
 import (
 	"context"
 	"errors"
-	"log"
 
 	"github.com/BBitQNull/SSHoneyNet/core/commandparser"
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
@@ -25,7 +24,6 @@ func MakeCmdDispatch(svc dispatcher.CmdDispatcherService) endpoint.Endpoint {
 		if !ok {
 			return nil, errors.New("error")
 		}
-		log.Println("sessionID:", req.SessionID)
 		result, err := svc.CmdDispatcher(ctx, req.Ast, req.SessionID)
 		if err != nil {
 			return nil, err

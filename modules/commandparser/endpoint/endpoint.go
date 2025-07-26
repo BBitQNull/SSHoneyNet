@@ -10,8 +10,7 @@ import (
 )
 
 type CmdParserRequest struct {
-	Cmd       string
-	SessionID string
+	Cmd string
 }
 
 type CmdParserResponse struct {
@@ -25,7 +24,7 @@ func MakeCmdParserEndpoint(svc commandparser.CmdParserService) endpoint.Endpoint
 			log.Printf("failed to assert:")
 			return nil, errors.New("failed to assert")
 		}
-		ast, err := svc.CommandParser(ctx, req.Cmd, req.SessionID)
+		ast, err := svc.CommandParser(ctx, req.Cmd)
 		if err != nil {
 			log.Printf("failed to cmdparser: %v", err)
 			return nil, err
