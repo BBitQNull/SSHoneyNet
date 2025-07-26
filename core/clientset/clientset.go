@@ -1,7 +1,8 @@
 package clientset
 
 import (
-	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
+	fs_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/fsclient"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"google.golang.org/grpc"
 )
 
@@ -10,12 +11,12 @@ import (
 
 type ClientSet struct {
 	ProcClient proc_client.ProcManageClient
-	//	FSClient   fsclient.FSManageClient
+	FSClient   fs_client.FSManageClient
 }
 
-func NewClientSet(connProc *grpc.ClientConn) *ClientSet {
+func NewClientSet(connProc, connFS *grpc.ClientConn) *ClientSet {
 	return &ClientSet{
 		ProcClient: proc_client.NewProcManageClient(connProc),
-		//	FSClient:   fsclient.NewFSManageClient(connFS),
+		FSClient:   fs_client.NewFSManageClient(connFS),
 	}
 }

@@ -11,11 +11,14 @@ import (
 	"github.com/BBitQNull/SSHoneyNet/modules/commands/uname"
 	dispatch_service "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/service"
 	dispatch_transport "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/transport"
+	fs_service "github.com/BBitQNull/SSHoneyNet/modules/filesystem/service"
+	fs_transport "github.com/BBitQNull/SSHoneyNet/modules/filesystem/transport"
 	process_service "github.com/BBitQNull/SSHoneyNet/modules/procsystem/service"
 	proc_transport "github.com/BBitQNull/SSHoneyNet/modules/procsystem/transport"
 	sshd_service "github.com/BBitQNull/SSHoneyNet/modules/sshd/service"
 	parser_Pb "github.com/BBitQNull/SSHoneyNet/pb/cmdparser"
 	dispatch_Pb "github.com/BBitQNull/SSHoneyNet/pb/dispatcher"
+	fs_Pb "github.com/BBitQNull/SSHoneyNet/pb/filesystem"
 	proc_Pb "github.com/BBitQNull/SSHoneyNet/pb/procsystem"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -38,7 +41,20 @@ func main() {
 		}
 	}()
 	// fs 启动
-
+	fsSvc := fs_service.NewFSService(fs_service.NewFileSystem())
+	fsGs := fs_transport.NewFSServer(fsSvc)
+	fsListener, err := net.Listen("tcp", ":9004")
+	if err != nil {
+		return
+	}
+	fsS := grpc.NewServer()
+	fs_Pb.RegisterFileManageServer(fsS, fsGs)
+	go func() {
+		err = fsS.Serve(fsListener)
+		if err != nil {
+			return
+		}
+	}()
 	// parser 启动
 	parserSvc, err := parser_service.NewCmdParserService()
 	if err != nil {
@@ -66,13 +82,25 @@ func main() {
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	)
 	if err != nil {
-		log.Println("dispatcher client start error")
+		log.Println("dispatcher connProc client start error")
 	}
 	defer connProc.Close()
 	if connProc == nil {
 		log.Fatal("Failed to connect to proc service")
 	}
-	clients := clientset.NewClientSet(connProc)
+
+	connFs, err := grpc.NewClient(
+		"127.0.0.1:9004",
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+	)
+	if err != nil {
+		log.Println("dispatcher connFs client start error")
+	}
+	defer connFs.Close()
+	if connFs == nil {
+		log.Fatal("Failed to connect to fs service")
+	}
+	clients := clientset.NewClientSet(connProc, connFs)
 
 	// dispatcher初始化
 	dispatchSvc := dispatch_service.NewDispatcherServer(clients)

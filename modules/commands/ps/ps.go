@@ -5,7 +5,7 @@ import (
 	"log"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
-	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client"
+	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"github.com/BBitQNull/SSHoneyNet/modules/sshd/service/handler"
 	"github.com/BBitQNull/SSHoneyNet/pkg/model"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/counterpid"

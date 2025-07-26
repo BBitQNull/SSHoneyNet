@@ -51,6 +51,33 @@ func NewFSService(fs *FileSystem) filesystem.FSService {
 	return &fsService{fs: fs}
 }
 
+func NewFileSystem() *FileSystem {
+	now := time.Now()
+	rootMetaData := filesystem.FileInfo{
+		Name:       "/",
+		Path:       "/",
+		Size:       0,
+		Mode:       filesystem.ModeDir,
+		OwnerUID:   0,
+		OwnerGID:   0,
+		ModTime:    now,
+		CreateTime: now,
+		AccessTime: now,
+		NLink:      1,
+	}
+	rootDir := &Directory{
+		BaseFile: BaseFile{
+			Name:     "/",
+			Parent:   nil,
+			Metadata: rootMetaData,
+		},
+		Children: make(map[string]filesystem.FileNode),
+	}
+	return &FileSystem{
+		Root: rootDir,
+	}
+}
+
 var generatorRegistry = map[string]func() ([]byte, error){
 	"proc_pid_status": func() ([]byte, error) {
 		return []byte("Name:\tmyproc\nState:\tR (running)\n"), nil
