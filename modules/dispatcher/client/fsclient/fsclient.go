@@ -22,6 +22,7 @@ type RawFSRequest struct {
 type RawFSResponse struct {
 	Result   []byte
 	Metadata filesystem.FileInfo
+	Children []filesystem.FileNodeInfo
 }
 
 type FSManageClient struct {
@@ -32,6 +33,7 @@ type FSManageClient struct {
 	Remove            endpoint.Endpoint
 	WriteFile         endpoint.Endpoint
 	ReadFile          endpoint.Endpoint
+	ListChildren      endpoint.Endpoint
 }
 
 func NewFSManageClient(conn *grpc.ClientConn) FSManageClient {
@@ -43,6 +45,7 @@ func NewFSManageClient(conn *grpc.ClientConn) FSManageClient {
 		Remove:            MakeRemoveEndpoint(conn),
 		WriteFile:         MakeWriteFileEndpoint(conn),
 		ReadFile:          MakeReadFileEndpoint(conn),
+		ListChildren:      MakeListChildrenEndpoint(conn),
 	}
 }
 
@@ -68,6 +71,7 @@ func decodeFileResponse(_ context.Context, response interface{}) (interface{}, e
 	return &RawFSResponse{
 		Result:   resp.Result,
 		Metadata: convert.ConvertMetadataFromPb(resp.Metadata),
+		Children: convert.ConvertChildrenFromPb(resp.Children),
 	}, nil
 }
 
@@ -136,6 +140,16 @@ func MakeFindMetaDataEndpoint(conn *grpc.ClientConn) endpoint.Endpoint {
 		conn,
 		"pb.FileManage",
 		"FindMetaData",
+		encodeFileRequest,
+		decodeFileResponse,
+		fs_Pb.FileResponse{},
+	).Endpoint()
+}
+func MakeListChildrenEndpoint(conn *grpc.ClientConn) endpoint.Endpoint {
+	return grpctransport.NewClient(
+		conn,
+		"pb.FileManage",
+		"ListChildren",
 		encodeFileRequest,
 		decodeFileResponse,
 		fs_Pb.FileResponse{},

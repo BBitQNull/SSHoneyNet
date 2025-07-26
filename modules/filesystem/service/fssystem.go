@@ -3,6 +3,7 @@ package fs_service
 import (
 	"context"
 	"fmt"
+	"log"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -165,7 +166,7 @@ func (d *Directory) ListChildren() ([]filesystem.FileNode, error) {
 }
 func (d *Directory) Find(path string) (filesystem.FileNode, error) {
 	cleanedPath := filepath.Clean(path)
-	if cleanedPath == "." {
+	if cleanedPath == "." || cleanedPath == "/" {
 		return d, nil
 	}
 	parts := strings.Split(cleanedPath, "/")
@@ -573,4 +574,21 @@ func (fs *fsService) FindMetaData(ctx context.Context, path string) (filesystem.
 		return filesystem.FileInfo{}, fmt.Errorf("file is not found: %s", path)
 	}
 	return resp.Stat(), nil
+}
+func (fs *fsService) ListChildren(ctx context.Context, path string) ([]filesystem.FileNode, error) {
+	log.Printf("ListChildren called with path=%s", path)
+	node, err := fs.fs.Find(path)
+	if err != nil {
+		log.Printf("ListChildren: path not found: %s", path)
+		return nil, err
+	}
+	dir, ok := node.(*Directory)
+	if !ok {
+		log.Printf("ListChildren: not a directory: %s", path)
+		return nil, fmt.Errorf("not a directory: %s", path)
+	}
+	if !node.IsDir() {
+		return nil, fmt.Errorf("not a directory")
+	}
+	return dir.ListChildren()
 }

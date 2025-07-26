@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
+	fs_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/fsclient"
 	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"github.com/BBitQNull/SSHoneyNet/modules/sshd/service/handler"
 	"github.com/BBitQNull/SSHoneyNet/pkg/model"
@@ -14,10 +15,14 @@ import (
 
 type PsHandler struct {
 	procClient proc_client.ProcManageClient
+	fsClient   fs_client.FSManageClient
 }
 
-func NewPsHandler(procClient proc_client.ProcManageClient) *PsHandler {
-	return &PsHandler{procClient: procClient}
+func NewPsHandler(procClient proc_client.ProcManageClient, fsClient fs_client.FSManageClient) *PsHandler {
+	return &PsHandler{
+		procClient: procClient,
+		fsClient:   fsClient,
+	}
 }
 
 func (h *PsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {

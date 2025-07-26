@@ -38,6 +38,15 @@ type FileInfo struct {
 	NLink      int32     // 硬链接数（通常目录是 2+，文件是 1）
 }
 
+type FileNodeInfo struct {
+	Name    string
+	IsDir   bool
+	Path    string
+	Size    int64
+	Mode    int32
+	ModTime int64
+}
+
 type FSService interface {
 	Find(ctx context.Context, path string) (FileNode, error)
 	CreateFile(ctx context.Context, path string, content []byte) error
@@ -47,4 +56,5 @@ type FSService interface {
 	WriteFile(ctx context.Context, path string, data []byte, flag string) error
 	ReadFile(ctx context.Context, path string) ([]byte, error)
 	FindMetaData(ctx context.Context, path string) (FileInfo, error)
+	ListChildren(ctx context.Context, path string) ([]FileNode, error)
 }

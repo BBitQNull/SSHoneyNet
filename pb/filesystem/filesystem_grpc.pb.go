@@ -26,6 +26,7 @@ const (
 	FileManage_WriteFile_FullMethodName         = "/pb.FileManage/WriteFile"
 	FileManage_ReadFile_FullMethodName          = "/pb.FileManage/ReadFile"
 	FileManage_FindMetaData_FullMethodName      = "/pb.FileManage/FindMetaData"
+	FileManage_ListChildren_FullMethodName      = "/pb.FileManage/ListChildren"
 )
 
 // FileManageClient is the client API for FileManage service.
@@ -39,6 +40,7 @@ type FileManageClient interface {
 	WriteFile(ctx context.Context, in *FileRequest, opts ...grpc.CallOption) (*FileResponse, error)
 	ReadFile(ctx context.Context, in *FileRequest, opts ...grpc.CallOption) (*FileResponse, error)
 	FindMetaData(ctx context.Context, in *FileRequest, opts ...grpc.CallOption) (*FileResponse, error)
+	ListChildren(ctx context.Context, in *FileRequest, opts ...grpc.CallOption) (*FileResponse, error)
 }
 
 type fileManageClient struct {
@@ -119,6 +121,16 @@ func (c *fileManageClient) FindMetaData(ctx context.Context, in *FileRequest, op
 	return out, nil
 }
 
+func (c *fileManageClient) ListChildren(ctx context.Context, in *FileRequest, opts ...grpc.CallOption) (*FileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FileResponse)
+	err := c.cc.Invoke(ctx, FileManage_ListChildren_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileManageServer is the server API for FileManage service.
 // All implementations must embed UnimplementedFileManageServer
 // for forward compatibility.
@@ -130,6 +142,7 @@ type FileManageServer interface {
 	WriteFile(context.Context, *FileRequest) (*FileResponse, error)
 	ReadFile(context.Context, *FileRequest) (*FileResponse, error)
 	FindMetaData(context.Context, *FileRequest) (*FileResponse, error)
+	ListChildren(context.Context, *FileRequest) (*FileResponse, error)
 	mustEmbedUnimplementedFileManageServer()
 }
 
@@ -160,6 +173,9 @@ func (UnimplementedFileManageServer) ReadFile(context.Context, *FileRequest) (*F
 }
 func (UnimplementedFileManageServer) FindMetaData(context.Context, *FileRequest) (*FileResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindMetaData not implemented")
+}
+func (UnimplementedFileManageServer) ListChildren(context.Context, *FileRequest) (*FileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListChildren not implemented")
 }
 func (UnimplementedFileManageServer) mustEmbedUnimplementedFileManageServer() {}
 func (UnimplementedFileManageServer) testEmbeddedByValue()                    {}
@@ -308,6 +324,24 @@ func _FileManage_FindMetaData_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileManage_ListChildren_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileManageServer).ListChildren(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FileManage_ListChildren_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileManageServer).ListChildren(ctx, req.(*FileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FileManage_ServiceDesc is the grpc.ServiceDesc for FileManage service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -342,6 +376,10 @@ var FileManage_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindMetaData",
 			Handler:    _FileManage_FindMetaData_Handler,
+		},
+		{
+			MethodName: "ListChildren",
+			Handler:    _FileManage_ListChildren_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

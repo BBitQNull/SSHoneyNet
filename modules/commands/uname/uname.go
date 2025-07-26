@@ -4,20 +4,25 @@ import (
 	"context"
 
 	"github.com/BBitQNull/SSHoneyNet/core/dispatcher"
+	fs_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/fsclient"
 	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/exescript"
 )
 
 type UnameHandler struct {
 	procClient proc_client.ProcManageClient
+	fsClient   fs_client.FSManageClient
 }
 
 const (
 	UNAME_A = "Linux myhostname 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
 )
 
-func NewUnameHandler(procClient proc_client.ProcManageClient) *UnameHandler {
-	return &UnameHandler{procClient: procClient}
+func NewUnameHandler(procClient proc_client.ProcManageClient, fsClient fs_client.FSManageClient) *UnameHandler {
+	return &UnameHandler{
+		procClient: procClient,
+		fsClient:   fsClient,
+	}
 }
 
 func (h *UnameHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {

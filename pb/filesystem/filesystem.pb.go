@@ -94,6 +94,7 @@ type FileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        []byte                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	Metadata      *Metadata              `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Children      []*FileNodeInfo        `protobuf:"bytes,3,rep,name=children,proto3" json:"children,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -138,6 +139,13 @@ func (x *FileResponse) GetResult() []byte {
 func (x *FileResponse) GetMetadata() *Metadata {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *FileResponse) GetChildren() []*FileNodeInfo {
+	if x != nil {
+		return x.Children
 	}
 	return nil
 }
@@ -258,6 +266,90 @@ func (x *Metadata) GetNLink() int32 {
 	return 0
 }
 
+type FileNodeInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	IsDir         bool                   `protobuf:"varint,2,opt,name=is_dir,json=isDir,proto3" json:"is_dir,omitempty"`
+	Path          string                 `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
+	Size          int64                  `protobuf:"varint,4,opt,name=size,proto3" json:"size,omitempty"`
+	Mode          int32                  `protobuf:"varint,5,opt,name=mode,proto3" json:"mode,omitempty"`
+	ModTime       int64                  `protobuf:"varint,6,opt,name=mod_time,json=modTime,proto3" json:"mod_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileNodeInfo) Reset() {
+	*x = FileNodeInfo{}
+	mi := &file_filesystem_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileNodeInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileNodeInfo) ProtoMessage() {}
+
+func (x *FileNodeInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_filesystem_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileNodeInfo.ProtoReflect.Descriptor instead.
+func (*FileNodeInfo) Descriptor() ([]byte, []int) {
+	return file_filesystem_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *FileNodeInfo) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *FileNodeInfo) GetIsDir() bool {
+	if x != nil {
+		return x.IsDir
+	}
+	return false
+}
+
+func (x *FileNodeInfo) GetPath() string {
+	if x != nil {
+		return x.Path
+	}
+	return ""
+}
+
+func (x *FileNodeInfo) GetSize() int64 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *FileNodeInfo) GetMode() int32 {
+	if x != nil {
+		return x.Mode
+	}
+	return 0
+}
+
+func (x *FileNodeInfo) GetModTime() int64 {
+	if x != nil {
+		return x.ModTime
+	}
+	return 0
+}
+
 var File_filesystem_proto protoreflect.FileDescriptor
 
 const file_filesystem_proto_rawDesc = "" +
@@ -267,10 +359,11 @@ const file_filesystem_proto_rawDesc = "" +
 	"\x04path\x18\x01 \x01(\tR\x04path\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\fR\acontent\x12\x12\n" +
 	"\x04flag\x18\x03 \x01(\tR\x04flag\x12%\n" +
-	"\x0egenerator_type\x18\x04 \x01(\tR\rgeneratorType\"P\n" +
+	"\x0egenerator_type\x18\x04 \x01(\tR\rgeneratorType\"~\n" +
 	"\fFileResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\fR\x06result\x12(\n" +
-	"\bmetadata\x18\x02 \x01(\v2\f.pb.MetadataR\bmetadata\"\xde\x02\n" +
+	"\bmetadata\x18\x02 \x01(\v2\f.pb.MetadataR\bmetadata\x12,\n" +
+	"\bchildren\x18\x03 \x03(\v2\x10.pb.FileNodeInfoR\bchildren\"\xde\x02\n" +
 	"\bMetadata\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04path\x18\x02 \x01(\tR\x04path\x12\x12\n" +
@@ -286,7 +379,14 @@ const file_filesystem_proto_rawDesc = "" +
 	"createTime\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"createTime\x12\x14\n" +
 	"\x05nLink\x18\n" +
-	" \x01(\x05R\x05nLink2\xee\x02\n" +
+	" \x01(\x05R\x05nLink\"\x90\x01\n" +
+	"\fFileNodeInfo\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x15\n" +
+	"\x06is_dir\x18\x02 \x01(\bR\x05isDir\x12\x12\n" +
+	"\x04path\x18\x03 \x01(\tR\x04path\x12\x12\n" +
+	"\x04size\x18\x04 \x01(\x03R\x04size\x12\x12\n" +
+	"\x04mode\x18\x05 \x01(\x05R\x04mode\x12\x19\n" +
+	"\bmod_time\x18\x06 \x01(\x03R\amodTime2\xa3\x03\n" +
 	"\n" +
 	"FileManage\x121\n" +
 	"\n" +
@@ -296,7 +396,8 @@ const file_filesystem_proto_rawDesc = "" +
 	"\x06Remove\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00\x120\n" +
 	"\tWriteFile\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00\x12/\n" +
 	"\bReadFile\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00\x123\n" +
-	"\fFindMetaData\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00B/Z-github.com/BBitQNull/SSHoneyNet/pb/filesystemb\x06proto3"
+	"\fFindMetaData\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00\x123\n" +
+	"\fListChildren\x12\x0f.pb.FileRequest\x1a\x10.pb.FileResponse\"\x00B/Z-github.com/BBitQNull/SSHoneyNet/pb/filesystemb\x06proto3"
 
 var (
 	file_filesystem_proto_rawDescOnce sync.Once
@@ -310,37 +411,41 @@ func file_filesystem_proto_rawDescGZIP() []byte {
 	return file_filesystem_proto_rawDescData
 }
 
-var file_filesystem_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_filesystem_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_filesystem_proto_goTypes = []any{
 	(*FileRequest)(nil),           // 0: pb.FileRequest
 	(*FileResponse)(nil),          // 1: pb.FileResponse
 	(*Metadata)(nil),              // 2: pb.Metadata
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*FileNodeInfo)(nil),          // 3: pb.FileNodeInfo
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_filesystem_proto_depIdxs = []int32{
 	2,  // 0: pb.FileResponse.metadata:type_name -> pb.Metadata
-	3,  // 1: pb.Metadata.modTime:type_name -> google.protobuf.Timestamp
-	3,  // 2: pb.Metadata.accessTime:type_name -> google.protobuf.Timestamp
-	3,  // 3: pb.Metadata.createTime:type_name -> google.protobuf.Timestamp
-	0,  // 4: pb.FileManage.CreateFile:input_type -> pb.FileRequest
-	0,  // 5: pb.FileManage.CreateDynamicFile:input_type -> pb.FileRequest
-	0,  // 6: pb.FileManage.Mkdir:input_type -> pb.FileRequest
-	0,  // 7: pb.FileManage.Remove:input_type -> pb.FileRequest
-	0,  // 8: pb.FileManage.WriteFile:input_type -> pb.FileRequest
-	0,  // 9: pb.FileManage.ReadFile:input_type -> pb.FileRequest
-	0,  // 10: pb.FileManage.FindMetaData:input_type -> pb.FileRequest
-	1,  // 11: pb.FileManage.CreateFile:output_type -> pb.FileResponse
-	1,  // 12: pb.FileManage.CreateDynamicFile:output_type -> pb.FileResponse
-	1,  // 13: pb.FileManage.Mkdir:output_type -> pb.FileResponse
-	1,  // 14: pb.FileManage.Remove:output_type -> pb.FileResponse
-	1,  // 15: pb.FileManage.WriteFile:output_type -> pb.FileResponse
-	1,  // 16: pb.FileManage.ReadFile:output_type -> pb.FileResponse
-	1,  // 17: pb.FileManage.FindMetaData:output_type -> pb.FileResponse
-	11, // [11:18] is the sub-list for method output_type
-	4,  // [4:11] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	3,  // 1: pb.FileResponse.children:type_name -> pb.FileNodeInfo
+	4,  // 2: pb.Metadata.modTime:type_name -> google.protobuf.Timestamp
+	4,  // 3: pb.Metadata.accessTime:type_name -> google.protobuf.Timestamp
+	4,  // 4: pb.Metadata.createTime:type_name -> google.protobuf.Timestamp
+	0,  // 5: pb.FileManage.CreateFile:input_type -> pb.FileRequest
+	0,  // 6: pb.FileManage.CreateDynamicFile:input_type -> pb.FileRequest
+	0,  // 7: pb.FileManage.Mkdir:input_type -> pb.FileRequest
+	0,  // 8: pb.FileManage.Remove:input_type -> pb.FileRequest
+	0,  // 9: pb.FileManage.WriteFile:input_type -> pb.FileRequest
+	0,  // 10: pb.FileManage.ReadFile:input_type -> pb.FileRequest
+	0,  // 11: pb.FileManage.FindMetaData:input_type -> pb.FileRequest
+	0,  // 12: pb.FileManage.ListChildren:input_type -> pb.FileRequest
+	1,  // 13: pb.FileManage.CreateFile:output_type -> pb.FileResponse
+	1,  // 14: pb.FileManage.CreateDynamicFile:output_type -> pb.FileResponse
+	1,  // 15: pb.FileManage.Mkdir:output_type -> pb.FileResponse
+	1,  // 16: pb.FileManage.Remove:output_type -> pb.FileResponse
+	1,  // 17: pb.FileManage.WriteFile:output_type -> pb.FileResponse
+	1,  // 18: pb.FileManage.ReadFile:output_type -> pb.FileResponse
+	1,  // 19: pb.FileManage.FindMetaData:output_type -> pb.FileResponse
+	1,  // 20: pb.FileManage.ListChildren:output_type -> pb.FileResponse
+	13, // [13:21] is the sub-list for method output_type
+	5,  // [5:13] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_filesystem_proto_init() }
@@ -354,7 +459,7 @@ func file_filesystem_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_filesystem_proto_rawDesc), len(file_filesystem_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

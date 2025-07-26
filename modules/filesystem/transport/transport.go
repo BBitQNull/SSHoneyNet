@@ -21,6 +21,7 @@ type grpcServer struct {
 	remove            grpctransport.Handler
 	writeFile         grpctransport.Handler
 	readFile          grpctransport.Handler
+	listChildren      grpctransport.Handler
 }
 
 func decodeFSRequest(ctx context.Context, grpcReq interface{}) (interface{}, error) {
@@ -46,6 +47,7 @@ func encodeFSResponse(ctx context.Context, response interface{}) (interface{}, e
 	return &fs_Pb.FileResponse{
 		Result:   resp.Result,
 		Metadata: convert.ConvertMetadataToPb(resp.Metadata),
+		Children: convert.ConvertChildrenToPb(resp.Children),
 	}, nil
 }
 
@@ -83,6 +85,11 @@ func NewFSServer(svc filesystem.FSService) fs_Pb.FileManageServer {
 		),
 		readFile: grpctransport.NewServer(
 			fs_endpoint.MakeReadFileEndpoint(svc),
+			decodeFSRequest,
+			encodeFSResponse,
+		),
+		listChildren: grpctransport.NewServer(
+			fs_endpoint.MakeListChildrenEndpoint(svc),
 			decodeFSRequest,
 			encodeFSResponse,
 		),
@@ -133,6 +140,13 @@ func (s *grpcServer) WriteFile(ctx context.Context, req *fs_Pb.FileRequest) (*fs
 }
 func (s *grpcServer) ReadFile(ctx context.Context, req *fs_Pb.FileRequest) (*fs_Pb.FileResponse, error) {
 	_, rep, err := s.readFile.ServeGRPC(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return rep.(*fs_Pb.FileResponse), nil
+}
+func (s *grpcServer) ListChildren(ctx context.Context, req *fs_Pb.FileRequest) (*fs_Pb.FileResponse, error) {
+	_, rep, err := s.listChildren.ServeGRPC(ctx, req)
 	if err != nil {
 		return nil, err
 	}

@@ -32,6 +32,9 @@ func ProtoTimestampToTime(ts *timestamppb.Timestamp) time.Time {
 }
 
 func ConvertMetadataFromPb(src *fs_Pb.Metadata) filesystem.FileInfo {
+	if src == nil {
+		return filesystem.FileInfo{}
+	}
 	return filesystem.FileInfo{
 		Name:       src.Name,
 		Path:       src.Path,

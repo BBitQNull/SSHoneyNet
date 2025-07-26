@@ -169,10 +169,12 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 					log.Printf("dispatchRespRaw断言失败")
 					continue
 				}
-				if result.Errcode == 0 {
-					rl.Write([]byte(result.Cmdresult + "\n"))
-				} else {
-					rl.Write([]byte(result.Errmsg + "\n"))
+				if len(result.Cmdresult)+len(result.Errmsg) > 0 {
+					if result.Errcode == 0 {
+						rl.Write([]byte(strings.TrimRight(result.Cmdresult, "\n") + "\n"))
+					} else {
+						rl.Write([]byte(strings.TrimRight(result.Errmsg, "\n") + "\n"))
+					}
 				}
 			}
 		}

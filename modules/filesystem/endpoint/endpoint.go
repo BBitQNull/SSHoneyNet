@@ -19,6 +19,7 @@ type FSRequest struct {
 type FSResponse struct {
 	Result   []byte
 	Metadata filesystem.FileInfo
+	Children []filesystem.FileNodeInfo
 }
 
 func MakeCreateFileEndpoint(svc filesystem.FSService) endpoint.Endpoint {
@@ -127,5 +128,35 @@ func MakeCreateDynamicFileEndpoint(svc filesystem.FSService) endpoint.Endpoint {
 			return nil, err
 		}
 		return FSResponse{}, nil
+	}
+}
+
+func MakeListChildrenEndpoint(svc filesystem.FSService) endpoint.Endpoint {
+	return func(ctx context.Context, request interface{}) (interface{}, error) {
+		req, ok := request.(FSRequest)
+		if !ok {
+			log.Printf("failed to assert MakeListChildrenEndpoint:")
+			return nil, errors.New("failed to assert MakeListChildrenEndpoint")
+		}
+		resp, err := svc.ListChildren(ctx, req.Path)
+		if err != nil {
+			log.Printf("error: MakeListChildrenEndpoint:")
+			return nil, err
+		}
+		result := make([]filesystem.FileNodeInfo, 0, len(resp))
+		for _, item := range resp {
+			info := item.Stat()
+			result = append(result, filesystem.FileNodeInfo{
+				Name:    item.GetName(),
+				IsDir:   item.IsDir(),
+				Path:    item.GetPath(),
+				Size:    info.Size,
+				Mode:    int32(info.Mode),
+				ModTime: info.ModTime.Unix(),
+			})
+		}
+		return FSResponse{
+			Children: result,
+		}, nil
 	}
 }
