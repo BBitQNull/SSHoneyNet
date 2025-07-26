@@ -82,7 +82,6 @@ func FormatLsLongOutput(files []filesystem.FileNodeInfo) string {
 }
 
 func (h *LsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error) {
-	log.Printf("ls Execute called with args=%v, flags=%v", cmd.Args, cmd.Flags)
 	if cmd.Name != "ls" {
 		return dispatcher.CmdEcho{
 			CmdResult: "zsh: command not found: " + cmd.Name,
@@ -107,17 +106,14 @@ func (h *LsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sess
 		if err != nil {
 			log.Printf("ls: cannot access '%s': No such file or directory\n", path)
 			output.WriteString(fmt.Sprintf("ls: cannot access '%s': No such file or directory\n", path))
-			//	continue
+			continue
 		}
-		log.Printf("ListChildren resp=%#v err=%v", resp, err)
 
 		v, ok := resp.(*fs_client.RawFSResponse)
 		if !ok || v == nil {
 			output.WriteString(fmt.Sprintf("ls: internal error for path '%s'\n", path))
 			continue
 		}
-		log.Printf("v.Children len=%d", len(v.Children))
-		log.Printf("args %s", args)
 
 		// 如果多个路径，显示类似 `path:` 前缀
 		if len(args) > 1 {
@@ -131,12 +127,8 @@ func (h *LsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sess
 		}
 		if formatted != "" {
 			output.WriteString(formatted)
-			//	output.WriteString("\n")
 		}
-		log.Printf("formatted output for path '%s':\n[%s]", path, formatted)
-
 	}
-
 	return dispatcher.CmdEcho{
 		CmdResult: output.String(),
 	}, nil

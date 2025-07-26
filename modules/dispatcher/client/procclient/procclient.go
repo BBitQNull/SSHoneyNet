@@ -69,7 +69,6 @@ func decodeProcCreateResponse(_ context.Context, response interface{}) (interfac
 	resp, ok := response.(*proc_Pb.ProcResponse)
 	if !ok {
 		return nil, fmt.Errorf("decodeProcCreateResponse: expected *ProcResponse but got %T", response)
-
 	}
 	return &RawProcResponse{
 		Process: convert.ConvertPcbFromPb(resp.Pcb),
@@ -103,7 +102,6 @@ func decodeProcKillResponse(_ context.Context, response interface{}) (interface{
 	resp, ok := response.(*proc_Pb.ProcResponse)
 	if !ok {
 		return nil, fmt.Errorf("decodeProcKillResponse: expected *ProcResponse but got %T", response)
-
 	}
 	return &RawProcResponse{
 		Process: convert.ConvertPcbFromPb(resp.Pcb),
@@ -137,7 +135,6 @@ func decodeProcGetResponse(_ context.Context, response interface{}) (interface{}
 	resp, ok := response.(*proc_Pb.ProcResponse)
 	if !ok {
 		return nil, fmt.Errorf("decodeProcGetResponse: expected *ProcResponse but got %T", response)
-
 	}
 	return &RawProcResponse{
 		Process: convert.ConvertPcbFromPb(resp.Pcb),
@@ -171,7 +168,6 @@ func decodeProcListResponse(_ context.Context, response interface{}) (interface{
 	resp, ok := response.(*proc_Pb.ProcResponse)
 	if !ok {
 		return nil, fmt.Errorf("decodeProcListResponse: expected *ProcResponse but got %T", response)
-
 	}
 	return &ListProcResponse{
 		Processes: convert.ConvertPcbListFromPb(resp.Pcblist),

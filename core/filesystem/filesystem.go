@@ -12,6 +12,7 @@ const (
 	ModeFile             // 普通文件
 	ModeDir              // 目录
 	ModeDynamic          // 动态文件（通过 Generator 生成内容）
+	ModeLink             // 链接文件
 )
 
 type FileNode interface {
@@ -23,6 +24,7 @@ type FileNode interface {
 	Stat() FileInfo
 	ListChildren() ([]FileNode, error)
 	Find(path string) (FileNode, error)
+	SetMeta(meta FileInfo)
 }
 
 type FileInfo struct {
@@ -57,4 +59,30 @@ type FSService interface {
 	ReadFile(ctx context.Context, path string) ([]byte, error)
 	FindMetaData(ctx context.Context, path string) (FileInfo, error)
 	ListChildren(ctx context.Context, path string) ([]FileNode, error)
+}
+
+// Json结构体
+type JSONFile struct {
+	Name      string      `json:"name"`
+	Mode      string      `json:"mode"` // "file", "dir", "link"
+	Size      int64       `json:"size"`
+	MTime     float64     `json:"mtime"`
+	Target    string      `json:"target,omitempty"` // for symlink
+	Generator string      `json:"generator,omitempty"`
+	Children  []*JSONFile `json:"children,omitempty"` // only for dir
+}
+
+func ModeFromString(src string) FileMode {
+	switch src {
+	case "file":
+		return ModeFile
+	case "dir":
+		return ModeDir
+	case "link":
+		return ModeLink
+	case "dynamic":
+		return ModeDynamic
+	default:
+		return ModeUnknown
+	}
 }

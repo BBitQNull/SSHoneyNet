@@ -1,0 +1,5755 @@
+{
+  "name": "/",
+  "mode": "dir",
+  "size": 4096,
+  "mtime": 1753548623.3674607,
+  "children": [
+    {
+      "name": "mnt",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": []
+    },
+    {
+      "name": "bin",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": [
+        {
+          "name": "netstat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "tar",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "sleep",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "sync",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "setpriv",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "bbconfig",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "login",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "pwd",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "base64",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ash",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "rev",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mkdir",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "linux32",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "umount",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "uname",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "dnsdomainname",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mktemp",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fgrep",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ln",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "stat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mount",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "run-parts",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mpstat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ping6",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "touch",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "false",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fatattr",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fdflush",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "gunzip",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "nice",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "printenv",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "gzip",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "rmdir",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "chattr",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "kbd_mode",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "kill",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "dd",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "chmod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "hostname",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "cat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "iostat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "watch",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "setserial",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "usleep",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "rm",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "date",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "zcat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ls",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "pidof",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "grep",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "true",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "su",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "linux64",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "dumpkmap",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ionice",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fsync",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "more",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mv",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "chown",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ps",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mknod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "reformime",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "echo",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "df",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "lsattr",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "egrep",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "cp",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ipcalc",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "dmesg",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mountpoint",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "chgrp",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "link",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ping",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "sh",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "lzop",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "getopt",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "makemime",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "stty",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "busybox",
+          "mode": "file",
+          "size": 808712,
+          "mtime": 1748289885.0
+        },
+        {
+          "name": "arch",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "pipe_progress",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "sed",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        }
+      ]
+    },
+    {
+      "name": "sbin",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": [
+        {
+          "name": "fstrim",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "modprobe",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "nameif",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "pivot_root",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "vconfig",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "iptunnel",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "acpid",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "raidautorun",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "depmod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "setconsole",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "reboot",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "hwclock",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mkfs.vfat",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "inotifyd",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ldconfig",
+          "mode": "file",
+          "size": 393,
+          "mtime": 1741163524.0
+        },
+        {
+          "name": "insmod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "route",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "arp",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ifdown",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "findfs",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fsck",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "nologin",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "klogd",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fdisk",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "loadkmap",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "losetup",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "halt",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "rmmod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "udhcpc",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "switch_root",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "logread",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "iproute",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "swapon",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "iplink",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "slattach",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ipaddr",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "watchdog",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "init",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "modinfo",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "swapoff",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "zcip",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ifconfig",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "apk",
+          "mode": "file",
+          "size": 69648,
+          "mtime": 1748520628.0
+        },
+        {
+          "name": "mkdosfs",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mdev",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "sysctl",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "lsmod",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ipneigh",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "tunctl",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "adjtimex",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "poweroff",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "syslogd",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ifup",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "blockdev",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "fbsplash",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ip",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "blkid",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "iprule",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "getty",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "mkswap",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        },
+        {
+          "name": "ifenslave",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1752576135.0,
+          "target": "/bin/busybox"
+        }
+      ]
+    },
+    {
+      "name": "root",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1753548625.2724457,
+      "children": [
+        {
+          "name": ".ash_history",
+          "mode": "file",
+          "size": 308,
+          "mtime": 1753548819.4729092
+        }
+      ]
+    },
+    {
+      "name": "lib",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": [
+        {
+          "name": "firmware",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "sysctl.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "modules-load.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "apk",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "exec",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548661.4971588,
+              "children": []
+            },
+            {
+              "name": "db",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548661.4971588,
+              "children": [
+                {
+                  "name": "installed",
+                  "mode": "file",
+                  "size": 104768,
+                  "mtime": 1753548661.4971588
+                },
+                {
+                  "name": "scripts.tar",
+                  "mode": "file",
+                  "size": 10240,
+                  "mtime": 1753548661.4971588
+                },
+                {
+                  "name": "triggers",
+                  "mode": "file",
+                  "size": 95,
+                  "mtime": 1753548661.4971588
+                },
+                {
+                  "name": "lock",
+                  "mode": "file",
+                  "size": 0,
+                  "mtime": 1752576135.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ld-musl-x86_64.so.1",
+          "mode": "file",
+          "size": 662120,
+          "mtime": 1741163524.0
+        },
+        {
+          "name": "libc.musl-x86_64.so.1",
+          "mode": "link",
+          "size": 19,
+          "mtime": 1752576135.0,
+          "target": "ld-musl-x86_64.so.1"
+        }
+      ]
+    },
+    {
+      "name": "dev",
+      "mode": "dynamic",
+      "generator": "dev",
+      "children": []
+    },
+    {
+      "name": "var",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": [
+        {
+          "name": "local",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "empty",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "lib",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "misc",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "log",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "run",
+          "mode": "link",
+          "size": 6,
+          "mtime": 1752576135.0,
+          "target": "../run"
+        },
+        {
+          "name": "cache",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "apk",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548648.858259,
+              "children": [
+                {
+                  "name": "APKINDEX.6c16d705.tar.gz",
+                  "mode": "file",
+                  "size": 499878,
+                  "mtime": 1753548647.9272664
+                },
+                {
+                  "name": "APKINDEX.76ae5dea.tar.gz",
+                  "mode": "file",
+                  "size": 2095632,
+                  "mtime": 1753548648.8572588
+                }
+              ]
+            },
+            {
+              "name": "misc",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "tmp",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "opt",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "mail",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "spool",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "cron",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "crontabs",
+                  "mode": "link",
+                  "size": 21,
+                  "mtime": 1752576135.0,
+                  "target": "../../../etc/crontabs"
+                }
+              ]
+            },
+            {
+              "name": "mail",
+              "mode": "link",
+              "size": 7,
+              "mtime": 1752576135.0,
+              "target": "../mail"
+            }
+          ]
+        },
+        {
+          "name": "lock",
+          "mode": "link",
+          "size": 11,
+          "mtime": 1752576135.0,
+          "target": "../run/lock"
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "mode": "dynamic",
+      "generator": "run",
+      "children": []
+    },
+    {
+      "name": "proc",
+      "mode": "dynamic",
+      "generator": "proc",
+      "children": [
+        {
+          "name": "cpuinfo",
+          "mode": "file"
+        },
+        {
+          "name": "meminfo",
+          "mode": "file"
+        },
+        {
+          "name": "version",
+          "mode": "file"
+        },
+        {
+          "name": "1",
+          "mode": "dir"
+        },
+        {
+          "name": "22",
+          "mode": "dir"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": []
+    },
+    {
+      "name": "usr",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1753548651.3922389,
+      "children": [
+        {
+          "name": "bin",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1753548657.814188,
+          "children": [
+            {
+              "name": "ssl_client",
+              "mode": "file",
+              "size": 14384,
+              "mtime": 1748289885.0
+            },
+            {
+              "name": "uniq",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "lzopcat",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "reset",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "basename",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "fuser",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "which",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "whois",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unlink",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "hd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "logger",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "shred",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "id",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sha512sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "bzip2",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "dirname",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "[[",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "timeout",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nohup",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "traceroute",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "diff",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "bzcat",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sort",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "ldd",
+              "mode": "file",
+              "size": 52,
+              "mtime": 1741163524.0
+            },
+            {
+              "name": "uuencode",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "traceroute6",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unshare",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unlzop",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "fold",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "test",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "xargs",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "truncate",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "killall",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "vi",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "fallocate",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "xzcat",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sha3sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tree",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "passwd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "wget",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "top",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "install",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "deallocvt",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "xxd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "dos2unix",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "ttysize",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "setsid",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tr",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tac",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "chvt",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "bc",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tty",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "dc",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "scanelf",
+              "mode": "file",
+              "size": 67504,
+              "mtime": 1737412397.0
+            },
+            {
+              "name": "unxz",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "hexdump",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "readlink",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "whoami",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "find",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "beep",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "volname",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nc",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "split",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "realpath",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "mkpasswd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "[",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "du",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nmeter",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "expr",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nl",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "clear",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "yes",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "mesg",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sha1sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sha256sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "getent",
+              "mode": "file",
+              "size": 18480,
+              "mtime": 1741163524.0
+            },
+            {
+              "name": "ipcs",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unix2dos",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "cmp",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "expand",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "resize",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "crontab",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "setkeycodes",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nproc",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "microcom",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "free",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "flock",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "blkdiscard",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "od",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "showkey",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pstree",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "eject",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "lzcat",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "lzma",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nsenter",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "time",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "lsof",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "getconf",
+              "mode": "file",
+              "size": 22344,
+              "mtime": 1741163524.0
+            },
+            {
+              "name": "comm",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "env",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unexpand",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "factor",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "uptime",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "openvt",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "hostid",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "printf",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unzip",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "last",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tail",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "groups",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "shuf",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "wc",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "udhcpc6",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "awk",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "iconv",
+              "mode": "file",
+              "size": 14152,
+              "mtime": 1741163524.0
+            },
+            {
+              "name": "cut",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "cpio",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "strings",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pgrep",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "bunzip2",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "renice",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "head",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "md5sum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pmap",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "cksum",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "ipcrm",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "paste",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "less",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pscan",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pkill",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "unlzma",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "mkfifo",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nslookup",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "cal",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "uudecode",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "cryptpw",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "lsusb",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "seq",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "tee",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "vlock",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "who",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pwdx",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "pydoc3.12",
+              "mode": "file",
+              "size": 79,
+              "mtime": 1749030947.0
+            },
+            {
+              "name": "pydoc3",
+              "mode": "link",
+              "size": 9,
+              "mtime": 1753548651.3922389,
+              "target": "pydoc3.12"
+            },
+            {
+              "name": "2to3",
+              "mode": "link",
+              "size": 9,
+              "mtime": 1753548651.3922389,
+              "target": "2to3-3.12"
+            },
+            {
+              "name": "2to3-3.12",
+              "mode": "file",
+              "size": 96,
+              "mtime": 1749030947.0
+            },
+            {
+              "name": "python",
+              "mode": "link",
+              "size": 7,
+              "mtime": 1753548651.3922389,
+              "target": "python3"
+            },
+            {
+              "name": "python3",
+              "mode": "link",
+              "size": 10,
+              "mtime": 1753548651.3922389,
+              "target": "python3.12"
+            },
+            {
+              "name": "python3.12",
+              "mode": "file",
+              "size": 14080,
+              "mtime": 1749030947.0
+            }
+          ]
+        },
+        {
+          "name": "local",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "bin",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "share",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "lib",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "sbin",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "remove-shell",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "brctl",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "adduser",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "rfkill",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "rdate",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "killall5",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "ether-wake",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nandwrite",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "crond",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "loadfont",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "setlogcons",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "chroot",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "readahead",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "partprobe",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "fbset",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nbd-client",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "addgroup",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "chpasswd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "ntpd",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "sendmail",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "delgroup",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "rdev",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "arping",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "deluser",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "nanddump",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "add-shell",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            },
+            {
+              "name": "setfont",
+              "mode": "link",
+              "size": 12,
+              "mtime": 1752576135.0,
+              "target": "/bin/busybox"
+            }
+          ]
+        },
+        {
+          "name": "share",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "man",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "udhcpc",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "default.script",
+                  "mode": "file",
+                  "size": 3811,
+                  "mtime": 1748289885.0
+                }
+              ]
+            },
+            {
+              "name": "apk",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "keys",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752576135.0,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "misc",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "lib",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1753548657.814188,
+          "children": [
+            {
+              "name": "libcrypto.so.3",
+              "mode": "file",
+              "size": 4985616,
+              "mtime": 1751552488.0
+            },
+            {
+              "name": "os-release",
+              "mode": "file",
+              "size": 188,
+              "mtime": 1752576101.0
+            },
+            {
+              "name": "engines-3",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "capi.so",
+                  "mode": "file",
+                  "size": 13864,
+                  "mtime": 1751552488.0
+                },
+                {
+                  "name": "loader_attic.so",
+                  "mode": "file",
+                  "size": 47608,
+                  "mtime": 1751552488.0
+                },
+                {
+                  "name": "afalg.so",
+                  "mode": "file",
+                  "size": 18504,
+                  "mtime": 1751552488.0
+                },
+                {
+                  "name": "padlock.so",
+                  "mode": "file",
+                  "size": 22360,
+                  "mtime": 1751552488.0
+                }
+              ]
+            },
+            {
+              "name": "libz.so.1",
+              "mode": "link",
+              "size": 13,
+              "mtime": 1752576135.0,
+              "target": "libz.so.1.3.1"
+            },
+            {
+              "name": "sysctl.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "00-alpine.conf",
+                  "mode": "file",
+                  "size": 1278,
+                  "mtime": 1742908603.0
+                }
+              ]
+            },
+            {
+              "name": "libssl.so.3",
+              "mode": "file",
+              "size": 839544,
+              "mtime": 1751552488.0
+            },
+            {
+              "name": "libz.so.1.3.1",
+              "mode": "file",
+              "size": 104280,
+              "mtime": 1726658779.0
+            },
+            {
+              "name": "modules-load.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "ossl-modules",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "legacy.so",
+                  "mode": "file",
+                  "size": 100184,
+                  "mtime": 1751552488.0
+                }
+              ]
+            },
+            {
+              "name": "libapk.so.2.14.9",
+              "mode": "file",
+              "size": 183992,
+              "mtime": 1748520628.0
+            },
+            {
+              "name": "libgdbm.so.6.0.0",
+              "mode": "file",
+              "size": 55088,
+              "mtime": 1719989947.0
+            },
+            {
+              "name": "liblzma.so.5",
+              "mode": "link",
+              "size": 16,
+              "mtime": 1753548649.5132537,
+              "target": "liblzma.so.5.8.1"
+            },
+            {
+              "name": "libffi.so.8.1.4",
+              "mode": "file",
+              "size": 38960,
+              "mtime": 1744538638.0
+            },
+            {
+              "name": "libmpdec++.so.4.0.1",
+              "mode": "file",
+              "size": 47024,
+              "mtime": 1747406985.0
+            },
+            {
+              "name": "libmpdec++.so.4",
+              "mode": "link",
+              "size": 19,
+              "mtime": 1753548650.4052467,
+              "target": "libmpdec++.so.4.0.1"
+            },
+            {
+              "name": "libpanelw.so.6",
+              "mode": "link",
+              "size": 16,
+              "mtime": 1753548650.6652446,
+              "target": "libpanelw.so.6.5"
+            },
+            {
+              "name": "libreadline.so.8.2",
+              "mode": "file",
+              "size": 285432,
+              "mtime": 1747304947.0
+            },
+            {
+              "name": "libstdc++.so.6.0.33",
+              "mode": "file",
+              "size": 2771336,
+              "mtime": 1746799641.0
+            },
+            {
+              "name": "libffi.so.8",
+              "mode": "link",
+              "size": 15,
+              "mtime": 1753548649.347255,
+              "target": "libffi.so.8.1.4"
+            },
+            {
+              "name": "libreadline.so.8",
+              "mode": "link",
+              "size": 18,
+              "mtime": 1753548650.7542439,
+              "target": "libreadline.so.8.2"
+            },
+            {
+              "name": "libncursesw.so.6.5",
+              "mode": "file",
+              "size": 342888,
+              "mtime": 1746535506.0
+            },
+            {
+              "name": "libpython3.12.so.1.0",
+              "mode": "file",
+              "size": 6313152,
+              "mtime": 1749030947.0
+            },
+            {
+              "name": "libbz2.so.1",
+              "mode": "link",
+              "size": 15,
+              "mtime": 1753548649.1782563,
+              "target": "libbz2.so.1.0.8"
+            },
+            {
+              "name": "libpanelw.so.6.5",
+              "mode": "file",
+              "size": 17960,
+              "mtime": 1746535506.0
+            },
+            {
+              "name": "libgdbm_compat.so.4",
+              "mode": "link",
+              "size": 23,
+              "mtime": 1753548649.4272544,
+              "target": "libgdbm_compat.so.4.0.0"
+            },
+            {
+              "name": "liblzma.so.5.8.1",
+              "mode": "file",
+              "size": 231288,
+              "mtime": 1743824422.0
+            },
+            {
+              "name": "libbz2.so.1.0.8",
+              "mode": "file",
+              "size": 74384,
+              "mtime": 1684120357.0
+            },
+            {
+              "name": "libgdbm_compat.so.4.0.0",
+              "mode": "file",
+              "size": 13936,
+              "mtime": 1719989947.0
+            },
+            {
+              "name": "libsqlite3.so.0",
+              "mode": "link",
+              "size": 20,
+              "mtime": 1753548650.8462431,
+              "target": "libsqlite3.so.3.49.2"
+            },
+            {
+              "name": "libncursesw.so.6",
+              "mode": "link",
+              "size": 18,
+              "mtime": 1753548650.5842452,
+              "target": "libncursesw.so.6.5"
+            },
+            {
+              "name": "libsqlite3.so.3.49.2",
+              "mode": "file",
+              "size": 1590672,
+              "mtime": 1753029029.0
+            },
+            {
+              "name": "libpython3.so",
+              "mode": "file",
+              "size": 13792,
+              "mtime": 1749030947.0
+            },
+            {
+              "name": "libmpdec.so.4.0.1",
+              "mode": "file",
+              "size": 145432,
+              "mtime": 1747406985.0
+            },
+            {
+              "name": "libgcc_s.so.1",
+              "mode": "file",
+              "size": 173920,
+              "mtime": 1746799641.0
+            },
+            {
+              "name": "python3.12",
+              "mode": "dir",
+              "size": 20480,
+              "mtime": 1753548658.0001864,
+              "children": [
+                {
+                  "name": "bisect.py",
+                  "mode": "file",
+                  "size": 3423,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "copy.py",
+                  "mode": "file",
+                  "size": 8412,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "operator.py",
+                  "mode": "file",
+                  "size": 10965,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "nntplib.py",
+                  "mode": "file",
+                  "size": 41087,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "optparse.py",
+                  "mode": "file",
+                  "size": 60369,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sre_parse.py",
+                  "mode": "file",
+                  "size": 229,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "filecmp.py",
+                  "mode": "file",
+                  "size": 10381,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "nturl2path.py",
+                  "mode": "file",
+                  "size": 2374,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "ntpath.py",
+                  "mode": "file",
+                  "size": 32324,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "posixpath.py",
+                  "mode": "file",
+                  "size": 17483,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pstats.py",
+                  "mode": "file",
+                  "size": 29289,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_threading_local.py",
+                  "mode": "file",
+                  "size": 7220,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "random.py",
+                  "mode": "file",
+                  "size": 34689,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "email",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.9761708,
+                  "children": []
+                },
+                {
+                  "name": "plistlib.py",
+                  "mode": "file",
+                  "size": 28342,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_osx_support.py",
+                  "mode": "file",
+                  "size": 22023,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "typing.py",
+                  "mode": "file",
+                  "size": 118836,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "ssl.py",
+                  "mode": "file",
+                  "size": 50904,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "struct.py",
+                  "mode": "file",
+                  "size": 257,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "token.py",
+                  "mode": "file",
+                  "size": 2511,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "importlib",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.4041674,
+                  "children": []
+                },
+                {
+                  "name": "concurrent",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.973171,
+                  "children": []
+                },
+                {
+                  "name": "opcode.py",
+                  "mode": "file",
+                  "size": 13174,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "profile.py",
+                  "mode": "file",
+                  "size": 23093,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "graphlib.py",
+                  "mode": "file",
+                  "size": 9648,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "turtledemo",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.0341625,
+                  "children": []
+                },
+                {
+                  "name": "turtle.py",
+                  "mode": "file",
+                  "size": 146363,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "gettext.py",
+                  "mode": "file",
+                  "size": 21320,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "heapq.py",
+                  "mode": "file",
+                  "size": 23024,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "http",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.2721686,
+                  "children": []
+                },
+                {
+                  "name": "decimal.py",
+                  "mode": "file",
+                  "size": 2805,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "dataclasses.py",
+                  "mode": "file",
+                  "size": 62085,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "wave.py",
+                  "mode": "file",
+                  "size": 22769,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "ftplib.py",
+                  "mode": "file",
+                  "size": 34735,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_pyio.py",
+                  "mode": "file",
+                  "size": 93593,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "py_compile.py",
+                  "mode": "file",
+                  "size": 7837,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "abc.py",
+                  "mode": "file",
+                  "size": 6538,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "traceback.py",
+                  "mode": "file",
+                  "size": 46393,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "urllib",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.2721605,
+                  "children": []
+                },
+                {
+                  "name": "subprocess.py",
+                  "mode": "file",
+                  "size": 88747,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "code.py",
+                  "mode": "file",
+                  "size": 10962,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "os.py",
+                  "mode": "file",
+                  "size": 40821,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "curses",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.9751709,
+                  "children": []
+                },
+                {
+                  "name": "symtable.py",
+                  "mode": "file",
+                  "size": 12477,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "socketserver.py",
+                  "mode": "file",
+                  "size": 28065,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sched.py",
+                  "mode": "file",
+                  "size": 6351,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sre_compile.py",
+                  "mode": "file",
+                  "size": 231,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "configparser.py",
+                  "mode": "file",
+                  "size": 53789,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "collections",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.973171,
+                  "children": []
+                },
+                {
+                  "name": "dis.py",
+                  "mode": "file",
+                  "size": 30227,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "poplib.py",
+                  "mode": "file",
+                  "size": 14619,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "uuid.py",
+                  "mode": "file",
+                  "size": 29656,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sysconfig.py",
+                  "mode": "file",
+                  "size": 31850,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pkgutil.py",
+                  "mode": "file",
+                  "size": 18281,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pydoc_data",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.9051635,
+                  "children": []
+                },
+                {
+                  "name": "fnmatch.py",
+                  "mode": "file",
+                  "size": 5999,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "genericpath.py",
+                  "mode": "file",
+                  "size": 5572,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_strptime.py",
+                  "mode": "file",
+                  "size": 28393,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "codeop.py",
+                  "mode": "file",
+                  "size": 5908,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sunau.py",
+                  "mode": "file",
+                  "size": 18478,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "webbrowser.py",
+                  "mode": "file",
+                  "size": 23733,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_pylong.py",
+                  "mode": "file",
+                  "size": 10790,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "lzma.py",
+                  "mode": "file",
+                  "size": 13277,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_py_abc.py",
+                  "mode": "file",
+                  "size": 6189,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "zipapp.py",
+                  "mode": "file",
+                  "size": 7543,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "base64.py",
+                  "mode": "file",
+                  "size": 20635,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sndhdr.py",
+                  "mode": "file",
+                  "size": 7448,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "zipimport.py",
+                  "mode": "file",
+                  "size": 27840,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_weakrefset.py",
+                  "mode": "file",
+                  "size": 5893,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "tabnanny.py",
+                  "mode": "file",
+                  "size": 11532,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_markupbase.py",
+                  "mode": "file",
+                  "size": 14653,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sre_constants.py",
+                  "mode": "file",
+                  "size": 232,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "functools.py",
+                  "mode": "file",
+                  "size": 37940,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "selectors.py",
+                  "mode": "file",
+                  "size": 19671,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "calendar.py",
+                  "mode": "file",
+                  "size": 25864,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "uu.py",
+                  "mode": "file",
+                  "size": 7365,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "ensurepip",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.2711685,
+                  "children": []
+                },
+                {
+                  "name": "dbm",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.9751709,
+                  "children": []
+                },
+                {
+                  "name": "ctypes",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.974171,
+                  "children": []
+                },
+                {
+                  "name": "zipfile",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.476159,
+                  "children": []
+                },
+                {
+                  "name": "tty.py",
+                  "mode": "file",
+                  "size": 2035,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "mimetypes.py",
+                  "mode": "file",
+                  "size": 23037,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "reprlib.py",
+                  "mode": "file",
+                  "size": 7148,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "__hello__.py",
+                  "mode": "file",
+                  "size": 227,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "tarfile.py",
+                  "mode": "file",
+                  "size": 112444,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "linecache.py",
+                  "mode": "file",
+                  "size": 5800,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "threading.py",
+                  "mode": "file",
+                  "size": 60200,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "__future__.py",
+                  "mode": "file",
+                  "size": 5218,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "html",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.2711685,
+                  "children": []
+                },
+                {
+                  "name": "ast.py",
+                  "mode": "file",
+                  "size": 64452,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "chunk.py",
+                  "mode": "file",
+                  "size": 5500,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "__pycache__",
+                  "mode": "dir",
+                  "size": 20480,
+                  "mtime": 1753548661.481159,
+                  "children": []
+                },
+                {
+                  "name": "shutil.py",
+                  "mode": "file",
+                  "size": 56762,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "locale.py",
+                  "mode": "file",
+                  "size": 78599,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pty.py",
+                  "mode": "file",
+                  "size": 6137,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_compat_pickle.py",
+                  "mode": "file",
+                  "size": 8761,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "textwrap.py",
+                  "mode": "file",
+                  "size": 19718,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "keyword.py",
+                  "mode": "file",
+                  "size": 1073,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "string.py",
+                  "mode": "file",
+                  "size": 11786,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "datetime.py",
+                  "mode": "file",
+                  "size": 268,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_sysconfigdata__linux_x86_64-linux-musl.py",
+                  "mode": "file",
+                  "size": 48222,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "stringprep.py",
+                  "mode": "file",
+                  "size": 12917,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "codecs.py",
+                  "mode": "file",
+                  "size": 36870,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "re",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.0321624,
+                  "children": []
+                },
+                {
+                  "name": "shelve.py",
+                  "mode": "file",
+                  "size": 8560,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "difflib.py",
+                  "mode": "file",
+                  "size": 83368,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "argparse.py",
+                  "mode": "file",
+                  "size": 101155,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "doctest.py",
+                  "mode": "file",
+                  "size": 106749,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_aix_support.py",
+                  "mode": "file",
+                  "size": 4021,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_sitebuiltins.py",
+                  "mode": "file",
+                  "size": 3128,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "enum.py",
+                  "mode": "file",
+                  "size": 81540,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "logging",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.6631653,
+                  "children": []
+                },
+                {
+                  "name": "platform.py",
+                  "mode": "file",
+                  "size": 43388,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "io.py",
+                  "mode": "file",
+                  "size": 3582,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pickletools.py",
+                  "mode": "file",
+                  "size": 94052,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "encodings",
+                  "mode": "dir",
+                  "size": 12288,
+                  "mtime": 1753548660.1331697,
+                  "children": []
+                },
+                {
+                  "name": "telnetlib.py",
+                  "mode": "file",
+                  "size": 23334,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "copyreg.py",
+                  "mode": "file",
+                  "size": 7614,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "numbers.py",
+                  "mode": "file",
+                  "size": 11467,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "imaplib.py",
+                  "mode": "file",
+                  "size": 54040,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "tokenize.py",
+                  "mode": "file",
+                  "size": 21570,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "site.py",
+                  "mode": "file",
+                  "size": 23198,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "tracemalloc.py",
+                  "mode": "file",
+                  "size": 18047,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "antigravity.py",
+                  "mode": "file",
+                  "size": 500,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "multiprocessing",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.6641655,
+                  "children": []
+                },
+                {
+                  "name": "mailbox.py",
+                  "mode": "file",
+                  "size": 78911,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pdb.py",
+                  "mode": "file",
+                  "size": 70298,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "config-3.12-x86_64-linux-musl",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548657.8191879,
+                  "children": []
+                },
+                {
+                  "name": "mailcap.py",
+                  "mode": "file",
+                  "size": 9333,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "getpass.py",
+                  "mode": "file",
+                  "size": 5990,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_compression.py",
+                  "mode": "file",
+                  "size": 5681,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "EXTERNALLY-MANAGED",
+                  "mode": "file",
+                  "size": 647,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "lib-dynload",
+                  "mode": "dir",
+                  "size": 12288,
+                  "mtime": 1753548657.8261878,
+                  "children": []
+                },
+                {
+                  "name": "tomllib",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.0341625,
+                  "children": []
+                },
+                {
+                  "name": "pipes.py",
+                  "mode": "file",
+                  "size": 8978,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "quopri.py",
+                  "mode": "file",
+                  "size": 7184,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "LICENSE.txt",
+                  "mode": "file",
+                  "size": 13936,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "runpy.py",
+                  "mode": "file",
+                  "size": 12885,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "__phello__",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548658.0001864,
+                  "children": []
+                },
+                {
+                  "name": "this.py",
+                  "mode": "file",
+                  "size": 1003,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "fileinput.py",
+                  "mode": "file",
+                  "size": 15714,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "gzip.py",
+                  "mode": "file",
+                  "size": 25402,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "crypt.py",
+                  "mode": "file",
+                  "size": 3913,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "glob.py",
+                  "mode": "file",
+                  "size": 8732,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "types.py",
+                  "mode": "file",
+                  "size": 10993,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pickle.py",
+                  "mode": "file",
+                  "size": 66911,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "sqlite3",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.0331626,
+                  "children": []
+                },
+                {
+                  "name": "shlex.py",
+                  "mode": "file",
+                  "size": 13353,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_collections_abc.py",
+                  "mode": "file",
+                  "size": 32089,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "contextvars.py",
+                  "mode": "file",
+                  "size": 129,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "bdb.py",
+                  "mode": "file",
+                  "size": 33573,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "cProfile.py",
+                  "mode": "file",
+                  "size": 6556,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "hmac.py",
+                  "mode": "file",
+                  "size": 7716,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "aifc.py",
+                  "mode": "file",
+                  "size": 34211,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "stat.py",
+                  "mode": "file",
+                  "size": 5485,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pyclbr.py",
+                  "mode": "file",
+                  "size": 11396,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "modulefinder.py",
+                  "mode": "file",
+                  "size": 23699,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "cgi.py",
+                  "mode": "file",
+                  "size": 34420,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "queue.py",
+                  "mode": "file",
+                  "size": 11496,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "lib2to3",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.5311666,
+                  "children": []
+                },
+                {
+                  "name": "csv.py",
+                  "mode": "file",
+                  "size": 16386,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "xmlrpc",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.3991597,
+                  "children": []
+                },
+                {
+                  "name": "colorsys.py",
+                  "mode": "file",
+                  "size": 4062,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "unittest",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.1541615,
+                  "children": []
+                },
+                {
+                  "name": "weakref.py",
+                  "mode": "file",
+                  "size": 21513,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "xdrlib.py",
+                  "mode": "file",
+                  "size": 5942,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "socket.py",
+                  "mode": "file",
+                  "size": 37815,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "json",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548660.4061675,
+                  "children": []
+                },
+                {
+                  "name": "_pydatetime.py",
+                  "mode": "file",
+                  "size": 92087,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "signal.py",
+                  "mode": "file",
+                  "size": 2495,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "wsgiref",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.2741606,
+                  "children": []
+                },
+                {
+                  "name": "cgitb.py",
+                  "mode": "file",
+                  "size": 12421,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "fractions.py",
+                  "mode": "file",
+                  "size": 38147,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "site-packages",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548657.828188,
+                  "children": []
+                },
+                {
+                  "name": "asyncio",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548659.6511734,
+                  "children": []
+                },
+                {
+                  "name": "venv",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.2741606,
+                  "children": []
+                },
+                {
+                  "name": "pprint.py",
+                  "mode": "file",
+                  "size": 24158,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "compileall.py",
+                  "mode": "file",
+                  "size": 20507,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "ipaddress.py",
+                  "mode": "file",
+                  "size": 81414,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "trace.py",
+                  "mode": "file",
+                  "size": 29352,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pathlib.py",
+                  "mode": "file",
+                  "size": 51052,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "smtplib.py",
+                  "mode": "file",
+                  "size": 43532,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "zoneinfo",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.477159,
+                  "children": []
+                },
+                {
+                  "name": "rlcompleter.py",
+                  "mode": "file",
+                  "size": 7827,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "contextlib.py",
+                  "mode": "file",
+                  "size": 27637,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "hashlib.py",
+                  "mode": "file",
+                  "size": 9349,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "netrc.py",
+                  "mode": "file",
+                  "size": 6922,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "getopt.py",
+                  "mode": "file",
+                  "size": 7488,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "pydoc.py",
+                  "mode": "file",
+                  "size": 113508,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "timeit.py",
+                  "mode": "file",
+                  "size": 13464,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "tempfile.py",
+                  "mode": "file",
+                  "size": 32386,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "cmd.py",
+                  "mode": "file",
+                  "size": 14873,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "xml",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1753548661.3971596,
+                  "children": []
+                },
+                {
+                  "name": "statistics.py",
+                  "mode": "file",
+                  "size": 50227,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "warnings.py",
+                  "mode": "file",
+                  "size": 21909,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "secrets.py",
+                  "mode": "file",
+                  "size": 1984,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "_pydecimal.py",
+                  "mode": "file",
+                  "size": 227283,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "bz2.py",
+                  "mode": "file",
+                  "size": 11847,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "imghdr.py",
+                  "mode": "file",
+                  "size": 4398,
+                  "mtime": 1749030947.0
+                },
+                {
+                  "name": "inspect.py",
+                  "mode": "file",
+                  "size": 127125,
+                  "mtime": 1749030947.0
+                }
+              ]
+            },
+            {
+              "name": "libexpat.so.1.10.2",
+              "mode": "file",
+              "size": 132800,
+              "mtime": 1743805076.0
+            },
+            {
+              "name": "libstdc++.so.6",
+              "mode": "link",
+              "size": 19,
+              "mtime": 1753548649.6892524,
+              "target": "libstdc++.so.6.0.33"
+            },
+            {
+              "name": "libmpdec.so.4",
+              "mode": "link",
+              "size": 17,
+              "mtime": 1753548650.4052467,
+              "target": "libmpdec.so.4.0.1"
+            },
+            {
+              "name": "libgdbm.so.6",
+              "mode": "link",
+              "size": 16,
+              "mtime": 1753548649.4272544,
+              "target": "libgdbm.so.6.0.0"
+            },
+            {
+              "name": "libexpat.so.1",
+              "mode": "link",
+              "size": 18,
+              "mtime": 1753548649.2642558,
+              "target": "libexpat.so.1.10.2"
+            }
+          ]
+        },
+        {
+          "name": "include",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1753548651.3922389,
+          "children": [
+            {
+              "name": "python3.12",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548657.814188,
+              "children": [
+                {
+                  "name": "pyconfig.h",
+                  "mode": "file",
+                  "size": 55845,
+                  "mtime": 1749030947.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sys",
+      "mode": "dynamic",
+      "generator": "sys",
+      "children": [
+        {
+          "name": "kernel",
+          "mode": "dir"
+        },
+        {
+          "name": "power",
+          "mode": "dir"
+        },
+        {
+          "name": "class",
+          "mode": "dir"
+        },
+        {
+          "name": "devices",
+          "mode": "dir"
+        },
+        {
+          "name": "dev",
+          "mode": "dir"
+        },
+        {
+          "name": "hypervisor",
+          "mode": "dir"
+        },
+        {
+          "name": "fs",
+          "mode": "dir"
+        },
+        {
+          "name": "bus",
+          "mode": "dir"
+        },
+        {
+          "name": "firmware",
+          "mode": "dir"
+        },
+        {
+          "name": "block",
+          "mode": "dir"
+        }
+      ]
+    },
+    {
+      "name": "tmp",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": []
+    },
+    {
+      "name": "srv",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": []
+    },
+    {
+      "name": "opt",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": []
+    },
+    {
+      "name": "etc",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1753548650.7552438,
+      "children": [
+        {
+          "name": "os-release",
+          "mode": "link",
+          "size": 21,
+          "mtime": 1752576135.0,
+          "target": "../usr/lib/os-release"
+        },
+        {
+          "name": "alpine-release",
+          "mode": "file",
+          "size": 7,
+          "mtime": 1752576101.0
+        },
+        {
+          "name": "sysctl.conf",
+          "mode": "file",
+          "size": 53,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "modprobe.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "blacklist.conf",
+              "mode": "file",
+              "size": 2136,
+              "mtime": 1742908603.0
+            },
+            {
+              "name": "i386.conf",
+              "mode": "file",
+              "size": 122,
+              "mtime": 1742908603.0
+            },
+            {
+              "name": "aliases.conf",
+              "mode": "file",
+              "size": 1545,
+              "mtime": 1742908603.0
+            }
+          ]
+        },
+        {
+          "name": "profile.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "color_prompt.sh.disabled",
+              "mode": "file",
+              "size": 447,
+              "mtime": 1742908603.0
+            },
+            {
+              "name": "README",
+              "mode": "file",
+              "size": 249,
+              "mtime": 1742908603.0
+            },
+            {
+              "name": "20locale.sh",
+              "mode": "file",
+              "size": 97,
+              "mtime": 1742908603.0
+            }
+          ]
+        },
+        {
+          "name": "group",
+          "mode": "file",
+          "size": 510,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "passwd",
+          "mode": "file",
+          "size": 702,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "modules",
+          "mode": "file",
+          "size": 15,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "busybox-paths.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "busybox",
+              "mode": "file",
+              "size": 3989,
+              "mtime": 1748289885.0
+            }
+          ]
+        },
+        {
+          "name": "hosts",
+          "mode": "file",
+          "size": 172,
+          "mtime": 1753548623.3944604
+        },
+        {
+          "name": "inittab",
+          "mode": "file",
+          "size": 570,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "secfixes.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "alpine",
+              "mode": "file",
+              "size": 97,
+              "mtime": 1752576101.0
+            }
+          ]
+        },
+        {
+          "name": "shells",
+          "mode": "file",
+          "size": 38,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "ssl",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "ct_log_list.cnf.dist",
+              "mode": "file",
+              "size": 412,
+              "mtime": 1751552488.0
+            },
+            {
+              "name": "ct_log_list.cnf",
+              "mode": "file",
+              "size": 412,
+              "mtime": 1751552488.0
+            },
+            {
+              "name": "certs",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "ca-certificates.crt",
+                  "mode": "file",
+                  "size": 212585,
+                  "mtime": 1752575711.0
+                }
+              ]
+            },
+            {
+              "name": "cert.pem",
+              "mode": "link",
+              "size": 25,
+              "mtime": 1752576135.0,
+              "target": "certs/ca-certificates.crt"
+            },
+            {
+              "name": "openssl.cnf.dist",
+              "mode": "file",
+              "size": 12411,
+              "mtime": 1751552488.0
+            },
+            {
+              "name": "private",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "openssl.cnf",
+              "mode": "file",
+              "size": 12411,
+              "mtime": 1751552488.0
+            }
+          ]
+        },
+        {
+          "name": "issue",
+          "mode": "file",
+          "size": 51,
+          "mtime": 1752576101.0
+        },
+        {
+          "name": "periodic",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "15min",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "weekly",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "monthly",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "daily",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "hourly",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "hostname",
+          "mode": "file",
+          "size": 13,
+          "mtime": 1753548623.328461
+        },
+        {
+          "name": "crontabs",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "root",
+              "mode": "file",
+              "size": 283,
+              "mtime": 1742908603.0
+            }
+          ]
+        },
+        {
+          "name": "sysctl.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "udhcpc",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "udhcpc.conf",
+              "mode": "file",
+              "size": 287,
+              "mtime": 1748289885.0
+            }
+          ]
+        },
+        {
+          "name": "shadow",
+          "mode": "file",
+          "size": 260,
+          "mtime": 1752576135.0
+        },
+        {
+          "name": "ssl1.1",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "certs",
+              "mode": "link",
+              "size": 14,
+              "mtime": 1752576135.0,
+              "target": "/etc/ssl/certs"
+            },
+            {
+              "name": "cert.pem",
+              "mode": "link",
+              "size": 17,
+              "mtime": 1752576135.0,
+              "target": "/etc/ssl/cert.pem"
+            }
+          ]
+        },
+        {
+          "name": "opt",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "motd",
+          "mode": "file",
+          "size": 284,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "logrotate.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "acpid",
+              "mode": "file",
+              "size": 140,
+              "mtime": 1748289885.0
+            }
+          ]
+        },
+        {
+          "name": "network",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": [
+            {
+              "name": "if-pre-down.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "if-pre-up.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "if-down.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "if-post-up.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "if-post-down.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "if-up.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "dad",
+                  "mode": "file",
+                  "size": 285,
+                  "mtime": 1748289885.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "modules-load.d",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "apk",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1753548661.4971588,
+          "children": [
+            {
+              "name": "protected_paths.d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": []
+            },
+            {
+              "name": "repositories",
+              "mode": "file",
+              "size": 103,
+              "mtime": 1752576135.0
+            },
+            {
+              "name": "world",
+              "mode": "file",
+              "size": 82,
+              "mtime": 1753548661.4971588
+            },
+            {
+              "name": "keys",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752576135.0,
+              "children": [
+                {
+                  "name": "alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+                  "mode": "file",
+                  "size": 800,
+                  "mtime": 1723638620.0
+                },
+                {
+                  "name": "alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub",
+                  "mode": "file",
+                  "size": 800,
+                  "mtime": 1723638620.0
+                },
+                {
+                  "name": "alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub",
+                  "mode": "file",
+                  "size": 451,
+                  "mtime": 1723638620.0
+                },
+                {
+                  "name": "alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub",
+                  "mode": "file",
+                  "size": 451,
+                  "mtime": 1723638620.0
+                },
+                {
+                  "name": "alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+                  "mode": "file",
+                  "size": 451,
+                  "mtime": 1723638620.0
+                }
+              ]
+            },
+            {
+              "name": "arch",
+              "mode": "file",
+              "size": 7,
+              "mtime": 1752576135.0
+            }
+          ]
+        },
+        {
+          "name": "profile",
+          "mode": "file",
+          "size": 547,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "fstab",
+          "mode": "file",
+          "size": 89,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "mtab",
+          "mode": "link",
+          "size": 12,
+          "mtime": 1753548623.309461,
+          "target": "/proc/mounts"
+        },
+        {
+          "name": "securetty",
+          "mode": "file",
+          "size": 156,
+          "mtime": 1748289885.0
+        },
+        {
+          "name": "nsswitch.conf",
+          "mode": "file",
+          "size": 205,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "protocols",
+          "mode": "file",
+          "size": 3144,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "services",
+          "mode": "file",
+          "size": 12813,
+          "mtime": 1742908603.0
+        },
+        {
+          "name": "inputrc",
+          "mode": "file",
+          "size": 1748,
+          "mtime": 1747304947.0
+        },
+        {
+          "name": "terminfo",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1753548650.4932458,
+          "children": [
+            {
+              "name": "t",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "tmux-256color",
+                  "mode": "file",
+                  "size": 3459,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "terminology",
+                  "mode": "file",
+                  "size": 3570,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "terminator",
+                  "mode": "file",
+                  "size": 1802,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "terminology-1.0.0",
+                  "mode": "file",
+                  "size": 3185,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "tmux",
+                  "mode": "file",
+                  "size": 3317,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "terminology-0.6.1",
+                  "mode": "file",
+                  "size": 2392,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "terminology-1.8.1",
+                  "mode": "file",
+                  "size": 3584,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "l",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "linux",
+                  "mode": "file",
+                  "size": 1740,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "k",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "konsole",
+                  "mode": "file",
+                  "size": 3342,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "konsole-256color",
+                  "mode": "file",
+                  "size": 3510,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "konsole-linux",
+                  "mode": "file",
+                  "size": 2088,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "a",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "alacritty",
+                  "mode": "file",
+                  "size": 3820,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "ansi",
+                  "mode": "file",
+                  "size": 1481,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "p",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "putty",
+                  "mode": "file",
+                  "size": 2530,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "putty-256color",
+                  "mode": "file",
+                  "size": 2608,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "r",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "rxvt-256color",
+                  "mode": "file",
+                  "size": 2460,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "rxvt",
+                  "mode": "file",
+                  "size": 2234,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "s",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "screen-256color",
+                  "mode": "file",
+                  "size": 1747,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-256color",
+                  "mode": "file",
+                  "size": 2798,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-0.8.5",
+                  "mode": "file",
+                  "size": 2680,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "screen",
+                  "mode": "file",
+                  "size": 1607,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-0.8",
+                  "mode": "file",
+                  "size": 2637,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-0.6",
+                  "mode": "file",
+                  "size": 2412,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-16color",
+                  "mode": "file",
+                  "size": 2838,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "sun",
+                  "mode": "file",
+                  "size": 1004,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-direct",
+                  "mode": "file",
+                  "size": 2744,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "st-0.7",
+                  "mode": "file",
+                  "size": 2731,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "d",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "dumb",
+                  "mode": "file",
+                  "size": 308,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "x",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "xterm-xfree86",
+                  "mode": "file",
+                  "size": 2240,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "xterm",
+                  "mode": "file",
+                  "size": 3980,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "xterm-256color",
+                  "mode": "file",
+                  "size": 4074,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "xterm-color",
+                  "mode": "file",
+                  "size": 1551,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "g",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "gnome-256color",
+                  "mode": "file",
+                  "size": 3299,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "gnome",
+                  "mode": "file",
+                  "size": 3029,
+                  "mtime": 1746535506.0
+                }
+              ]
+            },
+            {
+              "name": "v",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1753548650.4932458,
+              "children": [
+                {
+                  "name": "vt102",
+                  "mode": "file",
+                  "size": 1276,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "vt220",
+                  "mode": "file",
+                  "size": 1391,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "vt200",
+                  "mode": "link",
+                  "size": 5,
+                  "mtime": 1753548650.492246,
+                  "target": "vt220"
+                },
+                {
+                  "name": "vt52",
+                  "mode": "file",
+                  "size": 839,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "vt100",
+                  "mode": "file",
+                  "size": 1282,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "vte-256color",
+                  "mode": "file",
+                  "size": 3884,
+                  "mtime": 1746535506.0
+                },
+                {
+                  "name": "vte",
+                  "mode": "file",
+                  "size": 3634,
+                  "mtime": 1746535506.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "resolv.conf",
+          "mode": "file",
+          "size": 251,
+          "mtime": 1753548623.3944604
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1752576135.0,
+      "children": [
+        {
+          "name": "cdrom",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "usb",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        },
+        {
+          "name": "floppy",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752576135.0,
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "host",
+      "mode": "dir",
+      "size": 4096,
+      "mtime": 1753548802.457044,
+      "children": [
+        {
+          "name": ".viminfo",
+          "mode": "file",
+          "size": 21581,
+          "mtime": 1753546803.488855
+        },
+        {
+          "name": ".dotnet",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1749886671.768679,
+          "children": [
+            {
+              "name": "corefx",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749886671.768679,
+              "children": [
+                {
+                  "name": "cryptography",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886671.768679,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "gen_tree.py",
+          "mode": "file",
+          "size": 3015,
+          "mtime": 1753548817.866922
+        },
+        {
+          "name": ".pydistutils.cfg",
+          "mode": "file",
+          "size": 66,
+          "mtime": 1720604168.4091158
+        },
+        {
+          "name": ".ssh",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1749887024.072923,
+          "children": [
+            {
+              "name": "id_rsa",
+              "mode": "file",
+              "size": 2455,
+              "mtime": 1749887024.072923
+            },
+            {
+              "name": "id_rsa.pub",
+              "mode": "file",
+              "size": 559,
+              "mtime": 1749887024.072923
+            },
+            {
+              "name": "authorized_keys",
+              "mode": "file",
+              "size": 559,
+              "mtime": 1749887096.6263554
+            }
+          ]
+        },
+        {
+          "name": ".config",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752930512.9124765,
+          "children": [
+            {
+              "name": "procps",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752930512.9124765,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": ".bashrc",
+          "mode": "file",
+          "size": 3541,
+          "mtime": 1752767190.6806984
+        },
+        {
+          "name": "file_tree.json",
+          "mode": "file",
+          "size": 0,
+          "mtime": 1753548819.4729092
+        },
+        {
+          "name": ".docker",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752822479.9087496,
+          "children": [
+            {
+              "name": ".token_seed",
+              "mode": "file",
+              "size": 72,
+              "mtime": 1752826316.1221085
+            },
+            {
+              "name": ".token_seed.lock",
+              "mode": "file",
+              "size": 0,
+              "mtime": 1752822479.9087496
+            },
+            {
+              "name": "buildx",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752822478.804758,
+              "children": [
+                {
+                  "name": "refs",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752822478.804758,
+                  "children": []
+                },
+                {
+                  "name": "defaults",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752822478.7547586,
+                  "children": []
+                },
+                {
+                  "name": "instances",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752822478.7547586,
+                  "children": []
+                },
+                {
+                  "name": ".lock",
+                  "mode": "file",
+                  "size": 0,
+                  "mtime": 1752822478.7547586
+                },
+                {
+                  "name": ".buildNodeID",
+                  "mode": "file",
+                  "size": 16,
+                  "mtime": 1752822478.7567585
+                },
+                {
+                  "name": "activity",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752826316.0721087,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": ".bash_history",
+          "mode": "file",
+          "size": 17952,
+          "mtime": 1753540737.246784
+        },
+        {
+          "name": ".profile",
+          "mode": "file",
+          "size": 161,
+          "mtime": 1713791067.0
+        },
+        {
+          "name": ".vim",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752394499.7872257,
+          "children": [
+            {
+              "name": ".netrwhist",
+              "mode": "file",
+              "size": 90,
+              "mtime": 1752394499.7872257
+            }
+          ]
+        },
+        {
+          "name": ".mysql_history",
+          "mode": "file",
+          "size": 681,
+          "mtime": 1750410826.611328
+        },
+        {
+          "name": ".wget-hsts",
+          "mode": "file",
+          "size": 183,
+          "mtime": 1749886616.1711137
+        },
+        {
+          "name": ".vscode-server",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1750143690.4388883,
+          "children": [
+            {
+              "name": "data",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749974125.249038,
+              "children": [
+                {
+                  "name": "clp",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750133989.6682396,
+                  "children": []
+                },
+                {
+                  "name": "CachedProfilesData",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886669.0737,
+                  "children": []
+                },
+                {
+                  "name": "Machine",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886668.4827046,
+                  "children": []
+                },
+                {
+                  "name": "logs",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750133989.5492406,
+                  "children": []
+                },
+                {
+                  "name": "machineid",
+                  "mode": "file",
+                  "size": 36,
+                  "mtime": 1749886668.6767032
+                },
+                {
+                  "name": "User",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749887290.0728421,
+                  "children": []
+                },
+                {
+                  "name": "languagepacks.json",
+                  "mode": "file",
+                  "size": 14808,
+                  "mtime": 1750133989.8282382
+                },
+                {
+                  "name": "CachedExtensionVSIXs",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750061757.575115,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "extensions",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749981256.8973684,
+              "children": [
+                {
+                  "name": "ms-vscode.cpptools-themes-2.0.0",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749887564.3046966,
+                  "children": []
+                },
+                {
+                  "name": "ms-vscode.cpptools-1.25.3-linux-x64",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749887665.121908,
+                  "children": []
+                },
+                {
+                  "name": "ms-ceintl.vscode-language-pack-zh-hans-1.100.2025051409",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886672.3506744,
+                  "children": []
+                },
+                {
+                  "name": "extensions.json",
+                  "mode": "file",
+                  "size": 3876,
+                  "mtime": 1749981256.9123683
+                },
+                {
+                  "name": "ms-vscode.makefile-tools-0.12.17",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749981256.8873684,
+                  "children": []
+                },
+                {
+                  "name": "ms-vscode.cmake-tools-1.20.53",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749887570.0826514,
+                  "children": []
+                },
+                {
+                  "name": "ms-vscode.cpptools-extension-pack-1.3.1",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749887565.5936866,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "code-258e40fedc6cb8edf399a463ce3a9d32e7e1f6f3",
+              "mode": "file",
+              "size": 24580920,
+              "mtime": 1748871210.0
+            },
+            {
+              "name": "cli",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749886616.5931106,
+              "children": [
+                {
+                  "name": "servers",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886668.4987044,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": ".cli.258e40fedc6cb8edf399a463ce3a9d32e7e1f6f3.log",
+              "mode": "file",
+              "size": 470,
+              "mtime": 1750144695.0035696
+            }
+          ]
+        },
+        {
+          "name": ".pip",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1720604030.5199752,
+          "children": [
+            {
+              "name": "pip.conf",
+              "mode": "file",
+              "size": 109,
+              "mtime": 1720604168.4111156
+            }
+          ]
+        },
+        {
+          "name": ".gitconfig",
+          "mode": "file",
+          "size": 50,
+          "mtime": 1749892173.3796453
+        },
+        {
+          "name": "snap",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1752406040.9050572,
+          "children": [
+            {
+              "name": "certbot",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752406040.9050572,
+              "children": [
+                {
+                  "name": "current",
+                  "mode": "link",
+                  "size": 4,
+                  "mtime": 1752406040.9050572,
+                  "target": "4737"
+                },
+                {
+                  "name": "4737",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752406040.9050572,
+                  "children": []
+                },
+                {
+                  "name": "common",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752406040.9050572,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": ".cache",
+          "mode": "dir",
+          "size": 4096,
+          "mtime": 1749984711.5054624,
+          "children": [
+            {
+              "name": "motd.legal-displayed",
+              "mode": "file",
+              "size": 0,
+              "mtime": 1720511671.807
+            },
+            {
+              "name": "debuginfod_client",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749994809.078638,
+              "children": [
+                {
+                  "name": "5870b5654517f14634a5c83ddf2859d12af970b2",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749986644.7123847,
+                  "children": []
+                },
+                {
+                  "name": "cache_clean_interval_s",
+                  "mode": "file",
+                  "size": 5,
+                  "mtime": 1749984711.5054624
+                },
+                {
+                  "name": "d84828c204e46bb702eaee17890cc8b2d5689f5d",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749993042.3024085,
+                  "children": []
+                },
+                {
+                  "name": "3072445288dd2aba348bf583c65f70509aab8141",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749993333.3101385,
+                  "children": []
+                },
+                {
+                  "name": "cache_miss_s",
+                  "mode": "file",
+                  "size": 3,
+                  "mtime": 1749985986.8345165
+                }
+              ]
+            },
+            {
+              "name": "vscode-cpptools",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1750143714.7796867,
+              "children": [
+                {
+                  "name": "c0bc6693d6745345a625f605e4cb766f",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750144695.0425692,
+                  "children": []
+                },
+                {
+                  "name": "d1c0717becf0762b3e0ee4d38f552e8e",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750071741.6183867,
+                  "children": []
+                },
+                {
+                  "name": "be5de1fca508efff566acaaff2f6ee55",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749910642.6425772,
+                  "children": []
+                },
+                {
+                  "name": "ipch",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1750144085.7676134,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "pip",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1752767968.7627075,
+              "children": [
+                {
+                  "name": "http-v2",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752767964.4247406,
+                  "children": []
+                },
+                {
+                  "name": "selfcheck",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1752767968.7637074,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Microsoft",
+              "mode": "dir",
+              "size": 4096,
+              "mtime": 1749886668.6377034,
+              "children": [
+                {
+                  "name": "DeveloperTools",
+                  "mode": "dir",
+                  "size": 4096,
+                  "mtime": 1749886668.6377034,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": ".lesshst",
+          "mode": "file",
+          "size": 20,
+          "mtime": 1752769199.6632369
+        }
+      ]
+    },
+    {
+      "name": ".dockerenv",
+      "mode": "file",
+      "size": 0,
+      "mtime": 1753548623.309461
+    }
+  ]
+}

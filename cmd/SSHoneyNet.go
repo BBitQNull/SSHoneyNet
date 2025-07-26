@@ -1,8 +1,10 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net"
+	"os"
 
 	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	parser_service "github.com/BBitQNull/SSHoneyNet/modules/commandparser/service"
@@ -26,6 +28,7 @@ import (
 )
 
 func main() {
+	var jsonPath = flag.String("jsonPath", "/pkg/model/fs/file_tree.json", "JSONfilepath")
 	// proc 启动
 	procSvc := process_service.NewProcessServer()
 	procGs := proc_transport.NewGRPCProcServer(procSvc)
@@ -42,7 +45,12 @@ func main() {
 		}
 	}()
 	// fs 启动
-	fsSvc := fs_service.NewFSService(fs_service.NewFileSystem())
+	dir, _ := os.Getwd()
+	fs, err := fs_service.NewFileSystem(dir + *jsonPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fsSvc := fs_service.NewFSService(fs)
 	fsGs := fs_transport.NewFSServer(fsSvc)
 	fsListener, err := net.Listen("tcp", ":9004")
 	if err != nil {

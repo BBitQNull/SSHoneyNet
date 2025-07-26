@@ -2,8 +2,10 @@ package fs_service
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -28,13 +30,20 @@ type RegularFile struct {
 // 目录
 type Directory struct {
 	BaseFile
-	Children map[string]filesystem.FileNode
+	Children  map[string]filesystem.FileNode
+	Generator string `json:"generator,omitempty"`
 }
 
 // 动态文件
 type DynamicFile struct {
 	BaseFile
 	Generator func() ([]byte, error)
+}
+
+// 链接文件
+type Symlink struct {
+	BaseFile
+	TargetPath string // 指向的路径，比如 "/bin/busybox"
 }
 
 // 文件系统
@@ -52,31 +61,115 @@ func NewFSService(fs *FileSystem) filesystem.FSService {
 	return &fsService{fs: fs}
 }
 
-func NewFileSystem() *FileSystem {
-	now := time.Now()
-	rootMetaData := filesystem.FileInfo{
-		Name:       "/",
-		Path:       "/",
-		Size:       0,
-		Mode:       filesystem.ModeDir,
+func buildFromJSON(jf *filesystem.JSONFile, parent *Directory) filesystem.FileNode {
+	modTime := time.Unix(int64(jf.MTime), 0)
+	meta := filesystem.FileInfo{
+		Name:       jf.Name,
+		Path:       "", // 可以在 build 完后补充 path
+		Size:       jf.Size,
+		Mode:       filesystem.ModeFromString(jf.Mode), // 你需要实现这个辅助函数
 		OwnerUID:   0,
 		OwnerGID:   0,
-		ModTime:    now,
-		CreateTime: now,
-		AccessTime: now,
+		ModTime:    modTime,
+		CreateTime: modTime,
+		AccessTime: modTime,
 		NLink:      1,
 	}
-	rootDir := &Directory{
-		BaseFile: BaseFile{
-			Name:     "/",
-			Parent:   nil,
-			Metadata: rootMetaData,
-		},
-		Children: make(map[string]filesystem.FileNode),
+
+	switch jf.Mode {
+	case "dir":
+		dir := &Directory{
+			BaseFile: BaseFile{
+				Name:     jf.Name,
+				Parent:   parent,
+				Metadata: meta,
+			},
+			Children:  make(map[string]filesystem.FileNode),
+			Generator: "",
+		}
+		for _, child := range jf.Children {
+			childNode := buildFromJSON(child, dir)
+			dir.Children[child.Name] = childNode
+		}
+		return dir
+
+	case "file":
+		return &RegularFile{
+			BaseFile: BaseFile{
+				Name:     jf.Name,
+				Parent:   parent,
+				Metadata: meta,
+			},
+			Content: []byte{}, // 真实内容你可能没有
+		}
+
+	case "link":
+		return &Symlink{
+			BaseFile: BaseFile{
+				Name:     jf.Name,
+				Parent:   parent,
+				Metadata: meta,
+			},
+			TargetPath: jf.Target,
+		}
+	case "dynamic":
+		dir := &Directory{
+			BaseFile: BaseFile{
+				Name:     jf.Name,
+				Parent:   parent,
+				Metadata: meta,
+			},
+			Children:  make(map[string]filesystem.FileNode),
+			Generator: jf.Generator, // 记录下来，暂不执行
+		}
+		return dir
+
+	default:
+		panic(fmt.Sprintf("unknown mode: %s", jf.Mode))
 	}
-	return &FileSystem{
+}
+
+func (fs *FileSystem) populatePaths() {
+	var walk func(node filesystem.FileNode, path string)
+	walk = func(node filesystem.FileNode, path string) {
+		meta := node.Stat()
+		meta.Path = path
+		node.SetMeta(meta)
+
+		if dir, ok := node.(*Directory); ok {
+			for name, child := range dir.Children {
+				childPath := filepath.Join(path, name)
+				walk(child, childPath)
+			}
+		}
+	}
+	walk(fs.Root, "/")
+}
+
+func NewFileSystem(jsonPath string) (*FileSystem, error) {
+	data, err := os.ReadFile(jsonPath)
+	if err != nil {
+		return nil, err
+	}
+
+	var root filesystem.JSONFile
+	if err := json.Unmarshal(data, &root); err != nil {
+		return nil, err
+	}
+
+	rootNode := buildFromJSON(&root, nil)
+	rootDir, ok := rootNode.(*Directory)
+	if !ok {
+		return nil, fmt.Errorf("root is not a directory")
+	}
+
+	fs := &FileSystem{
 		Root: rootDir,
 	}
+	// 可选：为所有节点填充 Path 字段（递归）
+	fs.populatePaths()
+
+	return fs, nil
 }
 
 var generatorRegistry = map[string]func() ([]byte, error){
@@ -127,6 +220,9 @@ func (f *RegularFile) ListChildren() ([]filesystem.FileNode, error) {
 }
 func (f *RegularFile) Find(path string) (filesystem.FileNode, error) {
 	return nil, fmt.Errorf("cannot find path '%s' inside regular file '%s'", path, f.Name)
+}
+func (f *RegularFile) SetMeta(meta filesystem.FileInfo) {
+	f.Metadata = meta
 }
 
 // 目录实现filenode接口
@@ -199,6 +295,9 @@ func (d *Directory) Find(path string) (filesystem.FileNode, error) {
 	}
 	return current, nil
 }
+func (d *Directory) SetMeta(meta filesystem.FileInfo) {
+	d.Metadata = meta
+}
 
 // 动态文件实现filenode接口
 func (df *DynamicFile) GetName() string {
@@ -230,6 +329,41 @@ func (df *DynamicFile) ListChildren() ([]filesystem.FileNode, error) {
 }
 func (df *DynamicFile) Find(path string) (filesystem.FileNode, error) {
 	return nil, fmt.Errorf("cannot find path '%s' inside DynamicFile file '%s'", path, df.Name)
+}
+func (df *DynamicFile) SetMeta(meta filesystem.FileInfo) {
+	df.Metadata = meta
+}
+
+// 链接文件实现filenode接口
+func (s *Symlink) GetName() string {
+	return s.Name
+}
+func (s *Symlink) IsDir() bool {
+	return false
+}
+func (s *Symlink) GetPath() string {
+	if s.Parent == nil {
+		return "/"
+	}
+	return filepath.Join(s.Parent.GetPath(), s.Name)
+}
+func (s *Symlink) Read() ([]byte, error) {
+	return []byte(s.TargetPath), nil
+}
+func (s *Symlink) Write(data []byte, flag string) error {
+	return fmt.Errorf("cannot write to a symlink '%s'", s.Name)
+}
+func (s *Symlink) Stat() filesystem.FileInfo {
+	return s.Metadata
+}
+func (s *Symlink) ListChildren() ([]filesystem.FileNode, error) {
+	return nil, fmt.Errorf("cannot list children inside symlink '%s'", s.Name)
+}
+func (s *Symlink) Find(path string) (filesystem.FileNode, error) {
+	return nil, fmt.Errorf("cannot find path '%s' inside symlink '%s'", path, s.Name)
+}
+func (s *Symlink) SetMeta(meta filesystem.FileInfo) {
+	s.Metadata = meta
 }
 
 // FileSystem实现方法
@@ -576,7 +710,6 @@ func (fs *fsService) FindMetaData(ctx context.Context, path string) (filesystem.
 	return resp.Stat(), nil
 }
 func (fs *fsService) ListChildren(ctx context.Context, path string) ([]filesystem.FileNode, error) {
-	log.Printf("ListChildren called with path=%s", path)
 	node, err := fs.fs.Find(path)
 	if err != nil {
 		log.Printf("ListChildren: path not found: %s", path)

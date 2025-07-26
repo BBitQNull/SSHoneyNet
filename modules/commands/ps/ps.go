@@ -79,7 +79,6 @@ func (h *PsHandler) Execute(ctx context.Context, cmd exescript.ExecCommand, sess
 			procs = append(procs, p)
 		}
 	}
-
 	return dispatcher.CmdEcho{
 		CmdResult: model.FormatPsOutput(procs),
 		ErrCode:   0,

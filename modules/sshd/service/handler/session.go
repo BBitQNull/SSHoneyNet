@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"math/rand"
 	"regexp"
@@ -34,10 +35,11 @@ func getRandom() int64 {
 
 func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 	return func(s ssh.Session) {
+		cwd := "/" // 当前所在目录，等待“cd”命令更新
 		var rl *readline.Instance
 		var err error
 		rl, err = readline.NewEx(&readline.Config{
-			Prompt:          "honeypot> ",
+			Prompt:          "honeypot#> ",
 			HistoryLimit:    100,
 			InterruptPrompt: "^C",
 			EOFPrompt:       "exit",
@@ -48,9 +50,7 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 			FuncFilterInputRune: func(r rune) (rune, bool) {
 				switch r {
 				case 12: // Ctrl+L (ASCII 12)
-					//	rl.Clean()
 					s.Write([]byte("\033[H\033[2J"))
-					//	rl.Refresh()
 					return 0, false // 阻止进一步处理
 				case 26: // Ctrl+Z (ASCII 26)
 					s.Write([]byte("\n[模拟] 当前进程已挂起 (实际上并未挂起)"))
@@ -107,6 +107,8 @@ func SessionHandler(procClient proc_client.ProcManageClient) ssh.Handler {
 
 		// 交互
 		for {
+			rl.SetPrompt(fmt.Sprintf("honeypot:%s#> ", cwd))
+			rl.Refresh()
 			line, err := rl.Readline()
 			if err != nil {
 				break

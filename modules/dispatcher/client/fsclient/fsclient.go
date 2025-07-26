@@ -66,7 +66,6 @@ func decodeFileResponse(_ context.Context, response interface{}) (interface{}, e
 	resp, ok := response.(*fs_Pb.FileResponse)
 	if !ok {
 		return nil, fmt.Errorf("decodeFileResponse: expected *ProcResponse but got %T", response)
-
 	}
 	return &RawFSResponse{
 		Result:   resp.Result,

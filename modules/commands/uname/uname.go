@@ -15,7 +15,7 @@ type UnameHandler struct {
 }
 
 const (
-	UNAME_A = "Linux myhostname 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
+	UNAME_A = "Linux 80a0c3540f07 6.8.0-36-generic #36-Ubuntu SMP PREEMPT_DYNAMIC Mon Jun 10 10:49:14 UTC 2024 x86_64 Linux"
 )
 
 func NewUnameHandler(procClient proc_client.ProcManageClient, fsClient fs_client.FSManageClient) *UnameHandler {
