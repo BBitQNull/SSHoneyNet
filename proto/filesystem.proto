@@ -8,6 +8,12 @@ import "google/protobuf/timestamp.proto";
 
 service FileManage {
     rpc CreateFile(FileRequest) returns (FileResponse) {}
+    rpc CreateDynamicFile(FileRequest) returns (FileResponse) {}
+    rpc Mkdir(FileRequest) returns (FileResponse) {}
+    rpc Remove(FileRequest) returns (FileResponse) {}
+    rpc WriteFile(FileRequest) returns (FileResponse) {}
+    rpc ReadFile(FileRequest) returns (FileResponse) {}
+    rpc FindMetaData(FileRequest) returns (FileResponse) {}
 }
 
 message FileRequest {
