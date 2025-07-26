@@ -51,6 +51,15 @@ func NewFSService(fs *FileSystem) filesystem.FSService {
 	return &fsService{fs: fs}
 }
 
+var generatorRegistry = map[string]func() ([]byte, error){
+	"proc_pid_status": func() ([]byte, error) {
+		return []byte("Name:\tmyproc\nState:\tR (running)\n"), nil
+	},
+	"proc_pid_cmdline": func() ([]byte, error) {
+		return []byte("/bin/bash"), nil
+	},
+}
+
 // 常规文件实现filenode接口
 func (f *RegularFile) GetName() string {
 	return f.Name
@@ -512,7 +521,11 @@ func (fs *fsService) Find(ctx context.Context, path string) (filesystem.FileNode
 func (fs *fsService) CreateFile(ctx context.Context, path string, content []byte) error {
 	return fs.fs.CreateFile(path, content)
 }
-func (fs *fsService) CreateDynamicFile(ctx context.Context, path string, generator func() ([]byte, error)) error {
+func (fs *fsService) CreateDynamicFile(ctx context.Context, path string, generatorType string) error {
+	generator, ok := generatorRegistry[generatorType]
+	if !ok {
+		return fmt.Errorf("unknown generator type: %s", generatorType)
+	}
 	return fs.fs.CreateDynamicFile(path, generator)
 }
 func (fs *fsService) Mkdir(ctx context.Context, path string) error {
@@ -526,4 +539,11 @@ func (fs *fsService) WriteFile(ctx context.Context, path string, data []byte, fl
 }
 func (fs *fsService) ReadFile(ctx context.Context, path string) ([]byte, error) {
 	return fs.fs.ReadFile(path)
+}
+func (fs *fsService) FindMetaData(ctx context.Context, path string) (filesystem.FileInfo, error) {
+	resp, err := fs.fs.Find(path)
+	if err != nil {
+		return filesystem.FileInfo{}, fmt.Errorf("file is not found: %s", path)
+	}
+	return resp.Stat(), nil
 }

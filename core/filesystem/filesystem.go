@@ -41,9 +41,10 @@ type FileInfo struct {
 type FSService interface {
 	Find(ctx context.Context, path string) (FileNode, error)
 	CreateFile(ctx context.Context, path string, content []byte) error
-	CreateDynamicFile(ctx context.Context, path string, generator func() ([]byte, error)) error
+	CreateDynamicFile(ctx context.Context, path string, generatorType string) error
 	Mkdir(ctx context.Context, path string) error
 	Remove(ctx context.Context, path string) error
 	WriteFile(ctx context.Context, path string, data []byte, flag string) error
 	ReadFile(ctx context.Context, path string) ([]byte, error)
+	FindMetaData(ctx context.Context, path string) (FileInfo, error)
 }

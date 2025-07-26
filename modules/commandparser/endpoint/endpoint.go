@@ -21,8 +21,8 @@ func MakeCmdParserEndpoint(svc commandparser.CmdParserService) endpoint.Endpoint
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req, ok := request.(CmdParserRequest)
 		if !ok {
-			log.Printf("failed to assert:")
-			return nil, errors.New("failed to assert")
+			log.Printf("failed to assert MakeCmdParserEndpoint:")
+			return nil, errors.New("failed to assert MakeCmdParserEndpoint")
 		}
 		ast, err := svc.CommandParser(ctx, req.Cmd)
 		if err != nil {

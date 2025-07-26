@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package="github.com/BBitQNull/SSHoneyNet/pb/filesystem";
+
+import "google/protobuf/timestamp.proto";
+
+service FileManage {
+    rpc CreateFile(FileRequest) returns (FileResponse) {}
+}
+
+message FileRequest {
+    string path           = 1;
+    bytes  content        = 2;
+    string flag           = 3;
+    string generator_type = 4;
+}
+
+message FileResponse {
+    bytes    result   = 1;
+    Metadata metadata = 2;
+}
+
+message Metadata {
+    string                    name       = 1;    
+	string                    path       =2;      
+	int64                     size       =3;  
+	int32                     filemode   =4;   
+	int32                     ownerUID   =5;
+	int32                     ownerGID   =6;
+	google.protobuf.Timestamp modTime    =7;
+	google.protobuf.Timestamp accessTime =8;
+	google.protobuf.Timestamp createTime =9;
+	int32                     nLink      =10;
+}
