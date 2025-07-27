@@ -1,3 +1,5 @@
 .DS_Store
 /pkg/key/
 /pkg/model/log/
+biu.sh
+release_biu.sh
