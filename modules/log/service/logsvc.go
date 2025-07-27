@@ -46,10 +46,6 @@ func (s *LogServer) GetLogSince(ctx context.Context, t time.Time) ([]log.LogEntr
 	return s.StreamLogReader.ReadSince(t)
 }
 
-/*
-dir, _ := os.Getwd()
-logPath := filepath.Join(dir, "pkg", "model", "log", "log.json")
-*/
 func (w *FileLogWriter) Write(entry log.LogEntry) error {
 	w.mu.Lock()
 	defer w.mu.Unlock()

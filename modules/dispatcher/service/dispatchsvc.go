@@ -11,7 +11,7 @@ import (
 )
 
 type CmdDispatcherServer struct {
-	clients    *clientset.ClientSet
+	clients    *clientset.ClientSetDispatcher
 	commandMap map[string]CmdHandler
 	mu         sync.RWMutex
 }
@@ -20,7 +20,7 @@ type CmdHandler interface {
 	Execute(ctx context.Context, ast exescript.ExecCommand, sessionID string) (dispatcher.CmdEcho, error)
 }
 
-func NewDispatcherServer(clients *clientset.ClientSet) *CmdDispatcherServer {
+func NewDispatcherServer(clients *clientset.ClientSetDispatcher) *CmdDispatcherServer {
 	return &CmdDispatcherServer{
 		clients:    clients,
 		commandMap: make(map[string]CmdHandler),

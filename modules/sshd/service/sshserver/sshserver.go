@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/BBitQNull/SSHoneyNet/core/clientset"
 	proc_client "github.com/BBitQNull/SSHoneyNet/modules/dispatcher/client/procclient"
 	"github.com/BBitQNull/SSHoneyNet/modules/sshd/service/handler"
 	"github.com/BBitQNull/SSHoneyNet/pkg/utils/auth"
@@ -24,14 +25,14 @@ func loadPrivateKey(path string, passphrase []byte) (gossh.Signer, error) {
 }
 
 // 闭包 依赖于authSvc的具体实现
-func StartServer(authSvc auth.AuthService, procClient proc_client.ProcManageClient) {
+func StartServer(authSvc auth.AuthService, procClient proc_client.ProcManageClient, SSHDClient *clientset.ClientSetSSHD) {
 	signer, err := loadPrivateKey("/pkg/key/host_key_rsa", []byte("123456"))
 	if err != nil {
 		log.Fatal("failed to loadkeyfile: ", err)
 	}
 	s := &ssh.Server{
 		Addr:    *serverAddr,
-		Handler: handler.SessionHandler(procClient),
+		Handler: handler.SessionHandler(procClient, SSHDClient),
 		PasswordHandler: func(ctx ssh.Context, password string) bool {
 			username := ctx.User()
 			return authSvc.PasswordValidator(username, password)

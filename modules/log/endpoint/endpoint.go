@@ -23,6 +23,17 @@ type GetSinceLogResponse struct {
 	LogOutput []log.LogEntry
 }
 
+type ReadAllLogRequest struct{}
+
+type ReadAllLogResponse struct {
+	LogOutput []log.LogEntry
+}
+
+type Endpoints struct {
+	GetLogEndpoint     endpoint.Endpoint
+	ReadAllLogEndpoint endpoint.Endpoint
+}
+
 func MakeGetLogEndpoint(svc log.LogService) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
 		req, ok := request.(GetSinceLogRequest)
@@ -48,5 +59,20 @@ func MakeWriteLogEndpoint(svc log.LogService) endpoint.Endpoint {
 			return nil, err
 		}
 		return WriteLogResponse{}, nil
+	}
+}
+
+func MakeReadAllLogEndpoint(svc log.LogService) endpoint.Endpoint {
+	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
+		_, ok := request.(ReadAllLogRequest)
+		if !ok {
+			return nil, fmt.Errorf("invalid request type in MakeReadAllLogEndpoint, got %T", request)
+		}
+		resp, err := svc.GetLog(ctx)
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println(resp)
+		return ReadAllLogResponse{LogOutput: resp}, nil
 	}
 }
