@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package="github.com/BBitQNull/SSHoneyNet/pb/log";
+
+import "google/protobuf/timestamp.proto";
+
+service LogService {
+    rpc WriteLog(WriteLogRequest) returns (WriteLogResponse) {}
+}
+
+message WriteLogRequest {
+    LogEntry entry = 1;
+}
+
+message LogEntry {
+    google.protobuf.Timestamp	timestamp  =1; 
+	string  sessionID  =2;
+	string  userInput  =3; 
+	string  output     =4;  
+	string  ip         =5;   
+}
+
+message WriteLogResponse{}

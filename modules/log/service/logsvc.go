@@ -63,7 +63,6 @@ func (w *FileLogWriter) Write(entry log.LogEntry) error {
 	if err != nil {
 		return err
 	}
-
 	_, err = file.Write(append(data, '\n'))
 	return err
 }
@@ -83,11 +82,9 @@ func (w *FileLogWriter) ReadAll() ([]log.LogEntry, error) {
 		if err := json.Unmarshal(scanner.Bytes(), &entry); err == nil {
 			logs = append(logs, entry)
 		} else {
-
 			continue
 		}
 	}
-
 	if err := scanner.Err(); err != nil {
 		return nil, err
 	}
@@ -116,11 +113,7 @@ func (w *FileLogWriter) ReadSince(t time.Time) ([]log.LogEntry, error) {
 		if err := json.Unmarshal(line, &entry); err != nil {
 			continue
 		}
-		entryTime, err := time.Parse(time.RFC3339, entry.Timestamp)
-		if err != nil {
-			continue
-		}
-		if entryTime.After(t) {
+		if entry.Timestamp.After(t) {
 			results = append(results, entry)
 		}
 	}

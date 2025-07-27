@@ -16,7 +16,7 @@ type WriteLogRequest struct {
 type WriteLogResponse struct{}
 
 type GetSinceLogRequest struct {
-	Timestamp string `json:"timestamp"`
+	Timestamp time.Time
 }
 
 type GetSinceLogResponse struct {
@@ -29,11 +29,7 @@ func MakeGetLogEndpoint(svc log.LogService) endpoint.Endpoint {
 		if !ok {
 			return nil, fmt.Errorf("invalid request type in MakeGetLogEndpoint, got %T", request)
 		}
-		t, err := time.Parse(time.RFC3339, req.Timestamp)
-		if err != nil {
-			return nil, fmt.Errorf("invalid timestamp: %v", err)
-		}
-		v, err := svc.GetLogSince(ctx, t)
+		v, err := svc.GetLogSince(ctx, req.Timestamp)
 		if err != nil {
 			return nil, err
 		}
