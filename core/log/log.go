@@ -1,6 +1,9 @@
 package log
 
-import "context"
+import (
+	"context"
+	"time"
+)
 
 type LogEntry struct {
 	Timestamp string `json:"timestamp"`
@@ -13,7 +16,7 @@ type LogEntry struct {
 type LogService interface {
 	WriteLog(ctx context.Context, entry LogEntry) error
 	GetLog(ctx context.Context) ([]LogEntry, error)
-	GetLogSince(ctx context.Context, timestamp string) ([]LogEntry, error)
+	GetLogSince(ctx context.Context, t time.Time) ([]LogEntry, error)
 }
 
 type LogWriter interface {
@@ -22,5 +25,5 @@ type LogWriter interface {
 }
 
 type StreamLogReader interface {
-	ReadSince(timestamp string) ([]LogEntry, error)
+	ReadSince(t time.Time) ([]LogEntry, error)
 }

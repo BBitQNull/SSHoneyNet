@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"context"
 	"encoding/json"
-	"fmt"
 	"os"
 	"sync"
 	"time"
@@ -43,8 +42,8 @@ func (s *LogServer) GetLog(ctx context.Context) ([]log.LogEntry, error) {
 	return s.writer.ReadAll()
 }
 
-func (s *LogServer) GetLogSince(ctx context.Context, timestamp string) ([]log.LogEntry, error) {
-	return s.StreamLogReader.ReadSince(timestamp)
+func (s *LogServer) GetLogSince(ctx context.Context, t time.Time) ([]log.LogEntry, error) {
+	return s.StreamLogReader.ReadSince(t)
 }
 
 /*
@@ -96,14 +95,9 @@ func (w *FileLogWriter) ReadAll() ([]log.LogEntry, error) {
 	return logs, nil
 }
 
-func (w *FileLogWriter) ReadSince(timestamp string) ([]log.LogEntry, error) {
+func (w *FileLogWriter) ReadSince(t time.Time) ([]log.LogEntry, error) {
 	w.mu.RLock()
 	defer w.mu.RUnlock()
-
-	t, err := time.Parse(time.RFC3339, timestamp)
-	if err != nil {
-		return nil, fmt.Errorf("invalid timestamp: %v", err)
-	}
 
 	file, err := os.Open(w.filePath)
 	if err != nil {
