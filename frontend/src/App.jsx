@@ -9,6 +9,13 @@ import {
   Outlet,
   NavLink,
 } from "react-router-dom";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 // layout
 function LayOut() {
   return (
@@ -45,12 +52,28 @@ function LogAll() {
       </header>
       <section>
         <h3>这里展示日志</h3>
+        <QueryClientProvider client={queryClient}>
+          <QueryLogAll />
+        </QueryClientProvider>
       </section>
       <footer>
         <p>正在搭建ing...</p>
       </footer>
     </main>
   );
+}
+function QueryLogAll() {
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ["fetchlogall"],
+    queryFn: fetchlogall,
+  });
+  if (isPending) {
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    return <p>Error: {error.message}</p>;
+  }
+  return;
 }
 // logs/since
 function LogSince() {
